@@ -1,6 +1,5 @@
-﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Admin
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Admin;
+
+public class BL_Admin
 {
-    public class BL_Admin
-    {
-    }
 }

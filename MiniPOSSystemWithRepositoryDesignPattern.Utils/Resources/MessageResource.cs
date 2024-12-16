@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace MiniPOSSystemWithRepositoryDesignPattern.Utils.Resources
 {
-    internal class MessageResource
+    public class MessageResource
     {
+        public static string Success { get; } = "Success";
+        public static string Fail { get; } = "Fail.";
     }
 }

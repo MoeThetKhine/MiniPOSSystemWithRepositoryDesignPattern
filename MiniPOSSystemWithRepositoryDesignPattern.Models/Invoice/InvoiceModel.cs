@@ -1,5 +1,7 @@
 ﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Models.Invoice;
 
+#region InvoiceModel
+
 public class InvoiceModel
 {
     public string InvoiceId { get; set; } = null!;
@@ -10,3 +12,5 @@ public class InvoiceModel
 
     public bool? IsDelete { get; set; }
 }
+
+#endregion

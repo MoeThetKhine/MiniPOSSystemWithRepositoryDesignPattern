@@ -1,5 +1,7 @@
 ﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Utils.Enums;
 
+#region EnumStatusCode
+
 public enum EnumStatusCode
 {
     None,
@@ -9,3 +11,5 @@ public enum EnumStatusCode
     NotFound = 404,
     InternalServerError = 500
 }
+
+#endregion

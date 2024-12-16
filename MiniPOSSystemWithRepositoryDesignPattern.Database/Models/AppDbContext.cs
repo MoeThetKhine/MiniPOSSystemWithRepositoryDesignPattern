@@ -117,6 +117,8 @@ public partial class AppDbContext : DbContext
 
         #endregion
 
+        #region Sale
+
         modelBuilder.Entity<Sale>(entity =>
         {
             entity.HasKey(e => e.SaleId).HasName("PK__Sale__1EE3C3FF6BDC867D");
@@ -137,6 +139,8 @@ public partial class AppDbContext : DbContext
                 .IsFixedLength();
             entity.Property(e => e.UnitPrice).HasColumnType("decimal(10, 2)");
         });
+
+        #endregion
 
         OnModelCreatingPartial(modelBuilder);
     }

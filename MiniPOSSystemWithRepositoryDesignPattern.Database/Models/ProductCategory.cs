@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
 
 public partial class ProductCategory
 {

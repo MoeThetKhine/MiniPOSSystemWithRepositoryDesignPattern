@@ -1,1 +1,2 @@
-﻿
+﻿global using MiniPOSSystemWithRepositoryDesignPattern.Models.Admin;
+global using MiniPOSSystemWithRepositoryDesignPattern.Utils;

@@ -1,6 +1,4 @@
-﻿using MiniPOSSystemWithRepositoryDesignPattern.Models.Admin;
-using MiniPOSSystemWithRepositoryDesignPattern.Utils;
-
+﻿
 namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Admin;
 
 public interface IAdminRepository

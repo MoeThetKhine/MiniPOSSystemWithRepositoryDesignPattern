@@ -1,6 +1,5 @@
-﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.ProductCategory
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.ProductCategory;
+
+public class BL_ProductCategory
 {
-    internal class BL_ProductCategory
-    {
-    }
 }

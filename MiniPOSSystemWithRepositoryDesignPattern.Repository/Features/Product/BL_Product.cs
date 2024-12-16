@@ -1,6 +1,5 @@
-﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
+
+public class BL_Product
 {
-    public class BL_Product
-    {
-    }
 }

@@ -10,7 +10,6 @@
     <Folder Include="Features\Invoice\" />
     <Folder Include="Features\Sale\" />
     <Folder Include="Features\ProductCategory\" />
-    <Folder Include="Features\Product\" />
   </ItemGroup>
 
   <ItemGroup>

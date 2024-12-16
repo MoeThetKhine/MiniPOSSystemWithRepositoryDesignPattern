@@ -34,13 +34,15 @@ public static class DependencyInjection
 
     #endregion
 
+    #region AddDataAccessService
+
     private static IServiceCollection AddDataAccessService(this IServiceCollection services)
     {
-       
         return services
         .AddScoped<IAdminRepository, AdminRepository>();
-
     }
+
+    #endregion
 
     private static IServiceCollection AddBusinessLogicService(this IServiceCollection services)
     {

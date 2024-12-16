@@ -2,5 +2,5 @@
 
 public interface IAdminRepository
 {
-    Task<Result<List<AdminModel>>> GetAdminList(int pageNo, int pageSize, CancellationToken cs);
+    Task<Result<List<AdminModel>>> LoginAdmin(int pageNo, int pageSize, CancellationToken cs);
 }

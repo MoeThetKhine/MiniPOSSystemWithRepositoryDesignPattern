@@ -25,12 +25,18 @@ public partial class AppDbContext : DbContext
 
     #endregion
 
+
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Server=.;Database=MiniPos;User Id=sa;Password=sasa@123;TrustServerCertificate=True;");
 
+    #region OnModelCreating
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        #region Admin
+
         modelBuilder.Entity<Admin>(entity =>
         {
             entity.HasKey(e => e.UserId).HasName("PK__Admin__1788CCAC91800188");
@@ -51,6 +57,8 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.UserName).HasMaxLength(255);
             entity.Property(e => e.UserRole).HasMaxLength(255);
         });
+
+        #endregion
 
         modelBuilder.Entity<Invoice>(entity =>
         {
@@ -120,6 +128,8 @@ public partial class AppDbContext : DbContext
 
         OnModelCreatingPartial(modelBuilder);
     }
+
+    #endregion
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

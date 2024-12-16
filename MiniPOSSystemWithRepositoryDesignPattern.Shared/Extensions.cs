@@ -1,10 +1,9 @@
-﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Shared
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Shared;
+
+public static class Extensions
 {
-    public static class Extensions
+    public static IQueryable<TSource> Paginate<TSource>(this IQueryable<TSource> sources, int pageNo, int pageSize)
     {
-        public static IQueryable<TSource> Paginate<TSource>(this IQueryable<TSource> sources, int pageNo, int pageSize)
-        {
-            return sources.Skip((pageNo - 1) * pageSize).Take(pageSize);
-        }
+        return sources.Skip((pageNo - 1) * pageSize).Take(pageSize);
     }
 }

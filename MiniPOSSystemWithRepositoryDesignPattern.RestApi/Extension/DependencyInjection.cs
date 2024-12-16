@@ -44,9 +44,14 @@ public static class DependencyInjection
 
     #endregion
 
+    #region AddBusinessLogicService
+
     private static IServiceCollection AddBusinessLogicService(this IServiceCollection services)
     {
         return services
             .AddScoped<BL_Admin>();
     }
+
+    #endregion
+
 }

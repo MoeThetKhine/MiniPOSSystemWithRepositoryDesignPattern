@@ -64,6 +64,7 @@ public class Result<T>
 
     #endregion
 
+    #region Conflict
 
     public static Result<T> Conflict(string message = "Data Conflict")
     {
@@ -74,6 +75,8 @@ public class Result<T>
             StatusCode = EnumStatusCode.Conflict
         };
     }
+
+    #endregion
 
     public static Result<T> NotFound(string message = "No Data Found")
     {

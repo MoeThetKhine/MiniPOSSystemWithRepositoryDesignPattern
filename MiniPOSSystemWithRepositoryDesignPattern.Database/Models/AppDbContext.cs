@@ -78,6 +78,8 @@ public partial class AppDbContext : DbContext
 
         #endregion
 
+        #region Product
+
         modelBuilder.Entity<Product>(entity =>
         {
             entity.HasKey(e => e.ProductId).HasName("PK__Product__B40CC6CDCCE4FAF7");
@@ -98,6 +100,10 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.ProductName).HasMaxLength(255);
         });
 
+        #endregion
+
+        #region ProductCategory
+
         modelBuilder.Entity<ProductCategory>(entity =>
         {
             entity.HasKey(e => e.ProductCategoryId).HasName("PK__ProductC__3224ECCE04EA3181");
@@ -108,6 +114,8 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.IsDelete).HasDefaultValue(false);
             entity.Property(e => e.ProductCategoryName).HasMaxLength(255);
         });
+
+        #endregion
 
         modelBuilder.Entity<Sale>(entity =>
         {

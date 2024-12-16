@@ -1,5 +1,7 @@
 ﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Models.ProductCategory;
 
+#region ProductCategoryModel
+
 public class ProductCategoryModel
 {
     public string ProductCategoryId { get; set; } = null!;
@@ -8,3 +10,5 @@ public class ProductCategoryModel
 
     public bool? IsDelete { get; set; }
 }
+
+#endregion

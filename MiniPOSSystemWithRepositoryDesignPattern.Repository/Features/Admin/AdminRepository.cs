@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
-using MiniPOSSystemWithRepositoryDesignPattern.Shared;
-
-namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Admin
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Admin
 {
     public class AdminRepository : IAdminRepository
     {

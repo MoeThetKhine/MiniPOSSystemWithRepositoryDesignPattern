@@ -1,2 +1,5 @@
 ﻿global using MiniPOSSystemWithRepositoryDesignPattern.Models.Admin;
 global using MiniPOSSystemWithRepositoryDesignPattern.Utils;
+global using Microsoft.EntityFrameworkCore;
+global using MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
+global using MiniPOSSystemWithRepositoryDesignPattern.Shared;

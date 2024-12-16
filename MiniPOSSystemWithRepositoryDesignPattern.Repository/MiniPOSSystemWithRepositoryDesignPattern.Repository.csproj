@@ -13,4 +13,11 @@
     <Folder Include="Features\Product\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MiniPOSSystemWithRepositoryDesignPattern.Database\MiniPOSSystemWithRepositoryDesignPattern.Database.csproj" />
+    <ProjectReference Include="..\MiniPOSSystemWithRepositoryDesignPattern.Models\MiniPOSSystemWithRepositoryDesignPattern.Models.csproj" />
+    <ProjectReference Include="..\MiniPOSSystemWithRepositoryDesignPattern.Shared\MiniPOSSystemWithRepositoryDesignPattern.Shared.csproj" />
+    <ProjectReference Include="..\MiniPOSSystemWithRepositoryDesignPattern.Utils\MiniPOSSystemWithRepositoryDesignPattern.Utils.csproj" />
+  </ItemGroup>
+
 </Project>

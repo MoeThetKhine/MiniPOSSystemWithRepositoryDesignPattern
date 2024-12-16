@@ -7,6 +7,8 @@ public class Result<T>
     public string Message { get; set; }
     public bool IsSuccess { get; set; }
 
+    #region Success
+
     public static Result<T> Success(string message = "Success")
     {
         return new Result<T>
@@ -15,8 +17,9 @@ public class Result<T>
             IsSuccess = true,
             StatusCode = EnumStatusCode.Success
         };
-
     }
+
+    #endregion
 
     public static Result<T> Success(T data, string message = "Success")
     {

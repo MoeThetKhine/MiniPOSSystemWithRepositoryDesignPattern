@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
-using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Admin;
-
-namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Extension
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Extension
 {
     public static class DependencyInjection
     {

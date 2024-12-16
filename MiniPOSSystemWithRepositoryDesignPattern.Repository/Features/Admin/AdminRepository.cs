@@ -9,7 +9,9 @@ public class AdminRepository : IAdminRepository
         _db = db;
     }
 
-    public async Task<Result<List<AdminModel>>> GetAdminList(int pageNo, int pageSize, CancellationToken cs)
+    #region LoginAdmin
+
+    public async Task<Result<List<AdminModel>>> LoginAdmin(int pageNo, int pageSize, CancellationToken cs)
     {
         Result<List<AdminModel>> result;
 
@@ -40,6 +42,8 @@ public class AdminRepository : IAdminRepository
 
             }).ToListAsync();
 
+            result = Result<List<AdminModel>>.Success();
+
         }
         catch (Exception ex)
         {
@@ -47,4 +51,7 @@ public class AdminRepository : IAdminRepository
         }
         return result;
     }
+
+    #endregion
+
 }

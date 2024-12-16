@@ -1,5 +1,7 @@
 ﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Models.Admin;
 
+#region AdminModel
+
 public class AdminModel
 {
     public string UserId { get; set; } = null!;
@@ -20,3 +22,5 @@ public class AdminModel
 
     public bool? IsDelete { get; set; }
 }
+
+#endregion

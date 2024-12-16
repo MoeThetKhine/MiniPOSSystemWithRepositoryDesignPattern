@@ -1,5 +1,4 @@
-﻿
-namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Admin;
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Admin;
 
 public interface IAdminRepository
 {

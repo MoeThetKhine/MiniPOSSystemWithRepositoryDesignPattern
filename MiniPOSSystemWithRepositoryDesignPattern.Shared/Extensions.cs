@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace MiniPOSSystemWithRepositoryDesignPattern.Shared
 {
-    internal class Extensions
+    public static class Extensions
     {
+        public static IQueryable<TSource> Paginate<TSource>(this IQueryable<TSource> sources, int pageNo, int pageSize)
+        {
+            return sources.Skip((pageNo - 1) * pageSize).Take(pageSize);
+        }
     }
 }

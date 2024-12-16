@@ -1,6 +1,4 @@
-﻿using MiniPOSSystemWithRepositoryDesignPattern.Utils.Enums;
-
-namespace MiniPOSSystemWithRepositoryDesignPattern.Utils;
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Utils;
 
 public class Result<T>
 {

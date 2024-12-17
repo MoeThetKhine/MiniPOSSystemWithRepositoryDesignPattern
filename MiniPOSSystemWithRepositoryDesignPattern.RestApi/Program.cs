@@ -1,5 +1,3 @@
-using MiniPOSSystemWithRepositoryDesignPattern.RestApi.Extension;
-
 var builder = WebApplication.CreateBuilder(args);
 
 

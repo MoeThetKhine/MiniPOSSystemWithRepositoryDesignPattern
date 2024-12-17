@@ -2,7 +2,7 @@
 
 #region Product
 
-public partial class Product
+public class Product
 {
     public string ProductId { get; set; } = null!;
 
@@ -18,7 +18,7 @@ public partial class Product
 
     public DateTime? CreatedDate { get; set; }
 
-    public bool? IsDelete { get; set; }
+    public bool IsDelete { get; set; }
 }
 
 #endregion

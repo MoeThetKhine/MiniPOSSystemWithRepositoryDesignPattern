@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.ProductCategory
 {
-    internal class ProductCategoryRepository
+    public class ProductCategoryRepository : IProductCategoryRepository
     {
+
     }
 }

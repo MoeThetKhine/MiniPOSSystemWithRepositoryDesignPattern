@@ -1,7 +1,10 @@
-﻿using Azure;
+﻿using Microsoft.EntityFrameworkCore;
 using MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
 using MiniPOSSystemWithRepositoryDesignPattern.Models.Product;
-using MiniPOSSystemWithRepositoryDesignPattern.Utils;
+using MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
+using System.Linq.Expressions;
+using System.Threading;
+using Microsoft.EntityFrameworkCore;
 
 namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
 
@@ -12,6 +15,48 @@ public class ProductRepository : IProductRepository
     public ProductRepository(AppDbContext db)
     {
         _db = db;
+    }
+
+    public async Task<Result<ProductRequestModel>> CreateProductAsync(ProductRequestModel productRequestModel, CancellationToken cancellationToken)
+    {
+        Result<ProductRequestModel> result;
+
+        try
+        {
+            var existingProduct = await _db.Products
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.ProductName == productRequestModel.ProductName && !x.IsDelete,cancellationToken);
+
+            if(existingProduct is not null)
+            {
+                result = Result<ProductRequestModel>.Conflict("Product is already created");
+            }
+
+            string productId = Ulid.NewUlid().ToString();
+
+            var item = new Product
+            {
+                ProductId = productId,
+                ProductCategoryId = productRequestModel.ProductCategoryId,
+                ProductName = productRequestModel.ProductName,
+                Description = productRequestModel.Description,
+                Qty = productRequestModel.Qty,
+                Price = productRequestModel.Price,
+                CreatedDate = DateTime.UtcNow,
+            };
+
+            await _db.Products.AddAsync(item, cancellationToken);
+            await _db.SaveChangesAsync(cancellationToken);
+
+            result = Result<ProductRequestModel>.Success();
+
+
+        }
+        catch (Exception ex)
+        {
+            result = Result<ProductRequestModel>.Fail(ex.Message);
+        }
+
     }
 
     public async Task<Result<IEnumerable<ProductModel>>> GetProductAsync(int pageNo, int pageSize, CancellationToken cs)
@@ -25,6 +70,11 @@ public class ProductRepository : IProductRepository
                 .OrderBy(x => x.CreatedDate) 
                 .Paginate(pageNo, pageSize) 
                 .AsNoTracking();
+
+            if(query is null)
+            {
+                result = Result<IEnumerable<ProductModel>>.NotFound();
+            }
 
             var productList = await query.Select(x => new ProductModel
             {
@@ -45,5 +95,8 @@ public class ProductRepository : IProductRepository
 
         return result;
     }
+
+    
+
 
 }

@@ -1,10 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
-using MiniPOSSystemWithRepositoryDesignPattern.Models.Product;
-using MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
-using System.Linq.Expressions;
-using System.Threading;
-using Microsoft.EntityFrameworkCore;
+﻿using MiniPOSSystemWithRepositoryDesignPattern.Models.Product;
 
 namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
 

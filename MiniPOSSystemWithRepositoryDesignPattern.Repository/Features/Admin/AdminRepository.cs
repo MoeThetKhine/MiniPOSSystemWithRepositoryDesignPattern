@@ -9,41 +9,29 @@ public class AdminRepository : IAdminRepository
         _db = db;
     }
 
-    #region LoginAdmin
+    #region Get Admin Async
 
-    public async Task<Result<List<AdminModel>>> LoginAdmin(int pageNo, int pageSize, CancellationToken cs)
+    public async Task<Result<List<AdminModel>>> GetAdminAsync(int pageNo, int pageSize, CancellationToken cs)
     {
         Result<List<AdminModel>> result;
 
         try
         {
-            //var query = _context.TblBlogs
-            //.Where(x => x.IsActive == true)
-            //.Paginate(pageNo, pageSize);
-
-            //var lst = await query.Select(x => new BlogModel()
-            //{
-            //    BlogId = x.BlogId,
-            //    BlogTitle = x.BlogTitle,
-            //    BlogAuthor = x.BlogAuthor,
-            //    BlogContent = x.BlogContent,
-            //    IsActive = true
-
-            //}).ToListAsync(cs);
-
-            //result = Result<List<BlogModel>>.Success(lst);
-
             var query = _db.Admins
                 .Where(x => x.IsDelete == false)
                 .Paginate(pageNo, pageSize);
 
             var lst = await query.Select(x => new AdminModel()
             {
-
+                UserName = x.UserName,
+                Email = x.Email,
+                PhNo = x.PhNo,
+                UserRole = x.UserRole,
+                IsFirstTime = x.IsFirstTime,
+                IsLocked = x.IsLocked,
             }).ToListAsync();
 
             result = Result<List<AdminModel>>.Success();
-
         }
         catch (Exception ex)
         {

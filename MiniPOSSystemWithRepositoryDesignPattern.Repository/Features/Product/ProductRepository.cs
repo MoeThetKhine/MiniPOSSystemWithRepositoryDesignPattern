@@ -1,5 +1,4 @@
-﻿using MiniPOSSystemWithRepositoryDesignPattern.Models.Product;
-
+﻿
 namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
 
 public class ProductRepository : IProductRepository

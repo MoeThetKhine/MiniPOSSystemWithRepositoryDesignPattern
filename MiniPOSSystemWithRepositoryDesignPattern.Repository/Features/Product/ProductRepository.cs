@@ -1,5 +1,4 @@
-﻿
-namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
 
 public class ProductRepository : IProductRepository
 {
@@ -9,6 +8,9 @@ public class ProductRepository : IProductRepository
     {
         _db = db;
     }
+
+
+    #region  CreateProductAsync
 
     public async Task<Result<ProductRequestModel>> CreateProductAsync(ProductRequestModel productRequestModel, CancellationToken cancellationToken)
     {
@@ -51,6 +53,8 @@ public class ProductRepository : IProductRepository
         }
 
     }
+
+    #endregion
 
     public async Task<Result<IEnumerable<ProductModel>>> GetProductAsync(int pageNo, int pageSize, CancellationToken cs)
     {

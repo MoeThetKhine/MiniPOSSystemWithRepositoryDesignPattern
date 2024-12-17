@@ -1,6 +1,4 @@
-﻿using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
-
-namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Extension;
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Extension;
 
 public static class DependencyInjection
 {

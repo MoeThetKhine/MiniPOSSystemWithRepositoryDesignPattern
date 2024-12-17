@@ -56,6 +56,8 @@ public class ProductRepository : IProductRepository
 
     #endregion
 
+    #region GetProductAsync
+
     public async Task<Result<IEnumerable<ProductModel>>> GetProductAsync(int pageNo, int pageSize, CancellationToken cs)
     {
         Result<IEnumerable<ProductModel>> result;
@@ -93,7 +95,6 @@ public class ProductRepository : IProductRepository
         return result;
     }
 
-    
-
+    #endregion
 
 }

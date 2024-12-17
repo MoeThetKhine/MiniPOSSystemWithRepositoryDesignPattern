@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
-
+﻿
 namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Product;
 
 [Route("api/[controller]")]

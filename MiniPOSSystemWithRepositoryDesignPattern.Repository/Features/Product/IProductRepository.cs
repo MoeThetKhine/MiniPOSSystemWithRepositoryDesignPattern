@@ -1,6 +1,4 @@
-﻿using MiniPOSSystemWithRepositoryDesignPattern.Models.Product;
-
-namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
 
 public interface IProductRepository
 {

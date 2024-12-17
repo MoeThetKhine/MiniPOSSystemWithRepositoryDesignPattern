@@ -1,6 +1,5 @@
-﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.ProductCategory
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.ProductCategory;
+
+public interface IProductCategoryRepository
 {
-    internal interface IProductCategoryRepository
-    {
-    }
 }

@@ -1,7 +1,4 @@
-﻿using MiniPOSSystemWithRepositoryDesignPattern.Models.Product;
-using System.Threading;
-
-namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
 
 public class BL_Product
 {

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
 
 namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Product
@@ -15,11 +14,15 @@ namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Product
             _bL_Product = bL_Product;
         }
 
+        #region GetProductAsync
+
         [HttpGet]
         public async Task<IActionResult> GetProductAsync(int pageNo, int pageSize, CancellationToken cs)
         {
             var lst = await _bL_Product.GetProductAsync(pageNo,pageSize,cs);
             return Ok(lst);
         }
+
+        #endregion
     }
 }

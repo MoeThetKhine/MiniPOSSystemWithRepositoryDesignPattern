@@ -9,6 +9,8 @@ public class BL_Product
         _productRepository = productRepository;
     }
 
+    #region GetProductAsync
+
     public async Task<Result<IEnumerable<ProductModel>>> GetProductAsync(int pageNo, int pageSize, CancellationToken cs)
     {
         Result<IEnumerable<ProductModel>> response;
@@ -24,4 +26,7 @@ public class BL_Product
     result:
         return response;
     }
+
+    #endregion
+
 }

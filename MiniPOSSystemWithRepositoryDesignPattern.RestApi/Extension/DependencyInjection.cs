@@ -1,4 +1,6 @@
-﻿namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Extension;
+﻿using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
+
+namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Extension;
 
 public static class DependencyInjection
 {
@@ -39,7 +41,8 @@ public static class DependencyInjection
     private static IServiceCollection AddDataAccessService(this IServiceCollection services)
     {
         return services
-        .AddScoped<IAdminRepository, AdminRepository>();
+        .AddScoped<IAdminRepository, AdminRepository>()
+        .AddScoped<IProductRepository, ProductRepository>();
     }
 
     #endregion
@@ -49,7 +52,8 @@ public static class DependencyInjection
     private static IServiceCollection AddBusinessLogicService(this IServiceCollection services)
     {
         return services
-            .AddScoped<BL_Admin>();
+            .AddScoped<BL_Admin>()
+            .AddScoped<BL_Product>();
     }
 
     #endregion

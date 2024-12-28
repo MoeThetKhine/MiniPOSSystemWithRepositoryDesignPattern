@@ -35,6 +35,8 @@ public partial class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        #region TblAdmin
+
         modelBuilder.Entity<TblAdmin>(entity =>
         {
             entity.HasKey(e => e.UserId).HasName("PK__Tbl_Admi__1788CCAC6524DC9B");
@@ -55,6 +57,8 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.UserName).HasMaxLength(255);
             entity.Property(e => e.UserRole).HasMaxLength(255);
         });
+
+        #endregion
 
         modelBuilder.Entity<TblInvoice>(entity =>
         {

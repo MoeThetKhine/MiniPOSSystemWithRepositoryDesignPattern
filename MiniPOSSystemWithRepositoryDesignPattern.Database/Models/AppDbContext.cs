@@ -105,6 +105,8 @@ public partial class AppDbContext : DbContext
 
         #endregion
 
+        #region TblProductCategory
+
         modelBuilder.Entity<TblProductCategory>(entity =>
         {
             entity.HasKey(e => e.ProductCategoryId).HasName("PK__Tbl_Prod__3224ECEE51739172");
@@ -117,6 +119,8 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.IsDelete).HasDefaultValue(false);
             entity.Property(e => e.ProductCategoryName).HasMaxLength(255);
         });
+
+        #endregion
 
         modelBuilder.Entity<TblSale>(entity =>
         {

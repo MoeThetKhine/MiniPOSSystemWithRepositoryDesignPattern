@@ -1,4 +1,8 @@
-﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+
+namespace MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
 
 public partial class AppDbContext : DbContext
 {
@@ -11,41 +15,29 @@ public partial class AppDbContext : DbContext
     {
     }
 
-    #region DbSet
+    public virtual DbSet<TblAdmin> TblAdmins { get; set; }
 
-    public virtual DbSet<Admin> Admins { get; set; }
+    public virtual DbSet<TblInvoice> TblInvoices { get; set; }
 
-    public virtual DbSet<Invoice> Invoices { get; set; }
+    public virtual DbSet<TblProduct> TblProducts { get; set; }
 
-    public virtual DbSet<Product> Products { get; set; }
+    public virtual DbSet<TblProductCategory> TblProductCategories { get; set; }
 
-    public virtual DbSet<ProductCategory> ProductCategories { get; set; }
-
-    public virtual DbSet<Sale> Sales { get; set; }
-
-    #endregion
-
-    #region Connection 
+    public virtual DbSet<TblSale> TblSales { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Server=.;Database=MiniPos;User Id=sa;Password=sasa@123;TrustServerCertificate=True;");
 
-    #endregion
-
-    #region OnModelCreating
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        #region Admin
-
-        modelBuilder.Entity<Admin>(entity =>
+        modelBuilder.Entity<TblAdmin>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PK__Admin__1788CCAC91800188");
+            entity.HasKey(e => e.UserId).HasName("PK__Tbl_Admi__1788CCAC6524DC9B");
 
-            entity.ToTable("Admin");
+            entity.ToTable("Tbl_Admin");
 
-            entity.HasIndex(e => e.Email, "UQ__Admin__A9D10534A99AECA0").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Tbl_Admi__A9D105342C7327D3").IsUnique();
 
             entity.Property(e => e.UserId)
                 .HasMaxLength(255)
@@ -60,35 +52,29 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.UserRole).HasMaxLength(255);
         });
 
-        #endregion
-
-        #region Invoice
-
-        modelBuilder.Entity<Invoice>(entity =>
+        modelBuilder.Entity<TblInvoice>(entity =>
         {
-            entity.HasKey(e => e.InvoiceId).HasName("PK__Invoice__D796AAB50F7A6BAF");
+            entity.HasKey(e => e.InvoiceId).HasName("PK__Tbl_Invo__D796AAD50FF74D48");
 
-            entity.ToTable("Invoice");
+            entity.ToTable("Tbl_Invoice");
 
-            entity.Property(e => e.InvoiceId).HasMaxLength(255);
-            entity.Property(e => e.InvoiceDate)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime");
+            entity.Property(e => e.InvoiceId)
+                .HasMaxLength(255)
+                .HasColumnName("InvoiceID");
+            entity.Property(e => e.InvoiceDate).HasColumnType("datetime");
             entity.Property(e => e.IsDelete).HasDefaultValue(false);
             entity.Property(e => e.TotalAmount).HasColumnType("decimal(10, 2)");
         });
 
-        #endregion
-
-        #region Product
-
-        modelBuilder.Entity<Product>(entity =>
+        modelBuilder.Entity<TblProduct>(entity =>
         {
-            entity.HasKey(e => e.ProductId).HasName("PK__Product__B40CC6CDCCE4FAF7");
+            entity.HasKey(e => e.ProductId).HasName("PK__Tbl_Prod__B40CC6ED25C0E555");
 
-            entity.ToTable("Product");
+            entity.ToTable("Tbl_Product");
 
-            entity.Property(e => e.ProductId).HasMaxLength(255);
+            entity.Property(e => e.ProductId)
+                .HasMaxLength(255)
+                .HasColumnName("ProductID");
             entity.Property(e => e.CreatedDate)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
@@ -98,56 +84,47 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.ProductCategoryId)
                 .HasMaxLength(36)
                 .IsUnicode(false)
-                .IsFixedLength();
+                .IsFixedLength()
+                .HasColumnName("ProductCategoryID");
             entity.Property(e => e.ProductName).HasMaxLength(255);
         });
 
-        #endregion
-
-        #region ProductCategory
-
-        modelBuilder.Entity<ProductCategory>(entity =>
+        modelBuilder.Entity<TblProductCategory>(entity =>
         {
-            entity.HasKey(e => e.ProductCategoryId).HasName("PK__ProductC__3224ECCE04EA3181");
+            entity.HasKey(e => e.ProductCategoryId).HasName("PK__Tbl_Prod__3224ECEE51739172");
 
-            entity.ToTable("ProductCategory");
+            entity.ToTable("Tbl_ProductCategory");
 
-            entity.Property(e => e.ProductCategoryId).HasMaxLength(255);
+            entity.Property(e => e.ProductCategoryId)
+                .HasMaxLength(255)
+                .HasColumnName("ProductCategoryID");
             entity.Property(e => e.IsDelete).HasDefaultValue(false);
             entity.Property(e => e.ProductCategoryName).HasMaxLength(255);
         });
 
-        #endregion
-
-        #region Sale
-
-        modelBuilder.Entity<Sale>(entity =>
+        modelBuilder.Entity<TblSale>(entity =>
         {
-            entity.HasKey(e => e.SaleId).HasName("PK__Sale__1EE3C3FF6BDC867D");
+            entity.HasKey(e => e.SaleId).HasName("PK__Tbl_Sale__1EE3C41FEBE18C7E");
 
-            entity.ToTable("Sale");
+            entity.ToTable("Tbl_Sale");
 
-            entity.Property(e => e.SaleId).HasMaxLength(255);
+            entity.Property(e => e.SaleId)
+                .HasMaxLength(255)
+                .HasColumnName("SaleID");
             entity.Property(e => e.CreateDate)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
             entity.Property(e => e.InvoiceId)
-                .HasMaxLength(36)
-                .IsUnicode(false)
-                .IsFixedLength();
+                .HasMaxLength(255)
+                .HasColumnName("InvoiceID");
             entity.Property(e => e.ProductId)
-                .HasMaxLength(36)
-                .IsUnicode(false)
-                .IsFixedLength();
+                .HasMaxLength(255)
+                .HasColumnName("ProductID");
             entity.Property(e => e.UnitPrice).HasColumnType("decimal(10, 2)");
         });
 
-        #endregion
-
         OnModelCreatingPartial(modelBuilder);
     }
-
-    #endregion
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

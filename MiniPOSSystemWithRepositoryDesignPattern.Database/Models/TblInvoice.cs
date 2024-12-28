@@ -1,5 +1,7 @@
 ﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
 
+#region TblInvoice
+
 public partial class TblInvoice
 {
     public string InvoiceId { get; set; } = null!;
@@ -10,3 +12,5 @@ public partial class TblInvoice
 
     public bool? IsDelete { get; set; }
 }
+
+#endregion

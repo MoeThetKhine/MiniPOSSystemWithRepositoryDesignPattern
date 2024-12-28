@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-
-namespace MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
 
 public partial class AppDbContext : DbContext
 {

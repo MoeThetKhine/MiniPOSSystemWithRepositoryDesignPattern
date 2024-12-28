@@ -1,5 +1,7 @@
 ﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
 
+#region TblSale
+
 public partial class TblSale
 {
     public string SaleId { get; set; } = null!;
@@ -12,3 +14,5 @@ public partial class TblSale
 
     public DateTime? CreateDate { get; set; }
 }
+
+#endregion

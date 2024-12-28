@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
 
-namespace MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
+#region TblAdmin
 
 public partial class TblAdmin
 {
@@ -23,3 +22,5 @@ public partial class TblAdmin
 
     public bool? IsLocked { get; set; }
 }
+
+#endregion

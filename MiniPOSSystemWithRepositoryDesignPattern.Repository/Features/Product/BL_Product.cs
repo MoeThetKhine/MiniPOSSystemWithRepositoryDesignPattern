@@ -9,24 +9,6 @@ public class BL_Product
         _productRepository = productRepository;
     }
 
-    #region GetProductAsync
-
-    public async Task<Result<IEnumerable<ProductModel>>> GetProductAsync(int pageNo, int pageSize, CancellationToken cs)
-    {
-        Result<IEnumerable<ProductModel>> response;
-        try
-        {
-            response = await _productRepository.GetProductAsync(pageNo,pageSize,cs);
-
-        }
-        catch (Exception ex)
-        {
-            response =  Result<IEnumerable<ProductModel>>.Fail(ex);
-        }
-    result:
-        return response;
-    }
-
-    #endregion
+   
 
 }

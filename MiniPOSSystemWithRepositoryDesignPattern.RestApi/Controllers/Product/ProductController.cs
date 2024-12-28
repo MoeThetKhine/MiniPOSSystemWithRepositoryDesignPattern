@@ -11,14 +11,5 @@ public class ProductController : ControllerBase
         _bL_Product = bL_Product;
     }
 
-    #region GetProductAsync
-
-    [HttpGet]
-    public async Task<IActionResult> GetProductAsync(int pageNo, int pageSize, CancellationToken cs)
-    {
-        var lst = await _bL_Product.GetProductAsync(pageNo,pageSize,cs);
-        return Ok(lst);
-    }
-
-    #endregion
+   
 }

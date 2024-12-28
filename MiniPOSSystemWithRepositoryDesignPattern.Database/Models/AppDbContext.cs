@@ -60,6 +60,8 @@ public partial class AppDbContext : DbContext
 
         #endregion
 
+        #region TblInvoice
+
         modelBuilder.Entity<TblInvoice>(entity =>
         {
             entity.HasKey(e => e.InvoiceId).HasName("PK__Tbl_Invo__D796AAD50FF74D48");
@@ -73,6 +75,8 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.IsDelete).HasDefaultValue(false);
             entity.Property(e => e.TotalAmount).HasColumnType("decimal(10, 2)");
         });
+
+        #endregion
 
         modelBuilder.Entity<TblProduct>(entity =>
         {

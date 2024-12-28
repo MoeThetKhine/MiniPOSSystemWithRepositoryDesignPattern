@@ -1,5 +1,7 @@
 ﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
 
+#region TblProduct
+
 public partial class TblProduct
 {
     public string ProductId { get; set; } = null!;
@@ -16,3 +18,5 @@ public partial class TblProduct
 
     public bool? IsDelete { get; set; }
 }
+
+#endregion

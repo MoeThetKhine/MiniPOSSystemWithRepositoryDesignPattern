@@ -33,6 +33,8 @@ public partial class AppDbContext : DbContext
 
     #endregion
 
+    #region OnModelCreating
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         #region TblAdmin
@@ -122,6 +124,8 @@ public partial class AppDbContext : DbContext
 
         #endregion
 
+        #region TblSale
+
         modelBuilder.Entity<TblSale>(entity =>
         {
             entity.HasKey(e => e.SaleId).HasName("PK__Tbl_Sale__1EE3C41FEBE18C7E");
@@ -143,8 +147,12 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.UnitPrice).HasColumnType("decimal(10, 2)");
         });
 
+        #endregion
+
         OnModelCreatingPartial(modelBuilder);
     }
+
+    #endregion
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

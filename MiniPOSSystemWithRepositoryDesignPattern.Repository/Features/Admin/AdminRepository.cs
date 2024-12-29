@@ -1,5 +1,4 @@
-﻿
-namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Admin;
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Admin;
 
 public class AdminRepository : IAdminRepository
 {
@@ -9,6 +8,8 @@ public class AdminRepository : IAdminRepository
     {
         _db = db;
     }
+
+    #region GetAdminAsync
 
     public async Task<Result<IEnumerable<AdminModel>>> GetAdminAsync(int pageNo, int pageSize, CancellationToken cs)
     {
@@ -37,4 +38,6 @@ public class AdminRepository : IAdminRepository
         }
         return result;
     }
+
+    #endregion
 }

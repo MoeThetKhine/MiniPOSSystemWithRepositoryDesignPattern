@@ -16,7 +16,9 @@ public class BL_Product
         Result<ProductRequestModel> result;
         try
         {
-            if(productRequestModel.ProductName is null)
+            #region Validation
+
+            if (productRequestModel.ProductName is null)
             {
                 result = Result<ProductRequestModel>.Fail("Product Name Is Required.");
             }
@@ -32,6 +34,8 @@ public class BL_Product
             {
                 result = Result<ProductRequestModel>.Fail("ProductCategoryId Is Required.");
             }
+
+            #endregion
 
             result = await _productRepository.CreateProductAsync(productRequestModel, cancellationToken);
         }

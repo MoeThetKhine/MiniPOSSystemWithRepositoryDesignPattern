@@ -1,6 +1,4 @@
-﻿using MiniPOSSystemWithRepositoryDesignPattern.Models.Admin;
-
-namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Admin;
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Admin;
 
 [Route("api/[controller]")]
 [ApiController]

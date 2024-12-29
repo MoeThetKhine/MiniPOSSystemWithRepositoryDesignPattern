@@ -38,7 +38,7 @@ public class BL_Admin
         {
             result = await _adminRepository.CreateAdminAsync(adminRequest, cs);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             result = Result<AdminRequestModel>.Fail(ex);
         }
@@ -47,4 +47,19 @@ public class BL_Admin
 
     #endregion
 
+    public async Task<Result<AdminResponseModel>> UpdateAdminAsync(string name, AdminResponseModel adminResponse, CancellationToken cs)
+    {
+        Result<AdminResponseModel> result;
+
+        try
+        {
+            result = await _adminRepository.UpdateAdminAsync(name, adminResponse, cs);
+        }
+        catch(Exception ex)
+        {
+            result = Result<AdminResponseModel>.Fail(ex);
+        }
+        return result;
+
+    }
 }

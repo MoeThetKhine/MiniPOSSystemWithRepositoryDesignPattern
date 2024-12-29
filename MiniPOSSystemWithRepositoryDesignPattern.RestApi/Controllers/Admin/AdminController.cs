@@ -24,12 +24,15 @@ public class AdminController : ControllerBase
 
     #endregion
 
+    #region CreateAdminAsync
+
     [HttpPost]
     public async Task<IActionResult> CreateAdminAsync([FromForm]AdminRequestModel adminRequest , CancellationToken cs)
     {
         var item = await bL_Admin.CreateAdminAsync(adminRequest , cs);
         return Ok(item);
     }
-   
+
+    #endregion
 
 }

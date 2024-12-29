@@ -1,4 +1,6 @@
-﻿namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Product;
+﻿using MiniPOSSystemWithRepositoryDesignPattern.Models.Product;
+
+namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Product;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -11,5 +13,12 @@ public class ProductController : ControllerBase
         _bL_Product = bL_Product;
     }
 
-   
+    [HttpPost]
+    public async Task<IActionResult> CreateProductAsync(ProductRequestModel productRequestModel, CancellationToken cancellationToken)
+    {
+       var item = await _bL_Product.CreateProductAsync(productRequestModel, cancellationToken);
+        return Ok(item);
+    }
+
+
 }

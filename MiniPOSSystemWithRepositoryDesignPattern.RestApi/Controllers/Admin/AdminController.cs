@@ -35,6 +35,8 @@ public class AdminController : ControllerBase
 
     #endregion
 
+    #region UpdateAdminAsync
+
     [HttpPatch]
     public async Task<IActionResult> UpdateAdminAsync(string name, AdminResponseModel adminResponse, CancellationToken cs)
     {
@@ -42,4 +44,5 @@ public class AdminController : ControllerBase
         return Ok(item);
     }
 
+    #endregion
 }

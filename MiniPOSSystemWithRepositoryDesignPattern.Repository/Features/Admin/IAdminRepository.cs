@@ -2,5 +2,5 @@
 
 public interface IAdminRepository
 {
-   // Task<Result<List<AdminModel>>> GetAdminAsync(int pageNo, int pageSize, CancellationToken cs);
+    Task<Result<IEnumerable<AdminModel>>> GetAdminAsync(int pageNo, int pageSize, CancellationToken cs);
 }

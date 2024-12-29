@@ -13,6 +13,8 @@ public class ProductController : ControllerBase
         _bL_Product = bL_Product;
     }
 
+    #region CreateProductAsync
+
     [HttpPost]
     public async Task<IActionResult> CreateProductAsync(ProductRequestModel productRequestModel, CancellationToken cancellationToken)
     {
@@ -20,5 +22,6 @@ public class ProductController : ControllerBase
         return Ok(item);
     }
 
+    #endregion
 
 }

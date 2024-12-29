@@ -2,8 +2,5 @@
 
 public interface IProductRepository
 {
-   // Task<Result<IEnumerable<ProductModel>>> GetProductAsync(int pageNo, int pageSize, CancellationToken cs);
-
     Task<Result<ProductRequestModel>> CreateProductAsync(ProductRequestModel productRequestModel, CancellationToken cancellationToken);
-
 }

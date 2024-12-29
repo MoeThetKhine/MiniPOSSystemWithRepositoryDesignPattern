@@ -16,11 +16,11 @@ public partial class TblAdmin
 
     public string? UserRole { get; set; }
 
-    public bool? IsDelete { get; set; }
+    public bool IsDelete { get; set; }
 
     public bool? IsFirstTime { get; set; }
 
-    public bool? IsLocked { get; set; }
+    public bool IsLocked { get; set; }
 }
 
 #endregion

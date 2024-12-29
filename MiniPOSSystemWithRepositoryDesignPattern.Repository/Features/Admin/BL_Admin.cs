@@ -47,6 +47,8 @@ public class BL_Admin
 
     #endregion
 
+    #region UpdateAdminAsync
+
     public async Task<Result<AdminResponseModel>> UpdateAdminAsync(string name, AdminResponseModel adminResponse, CancellationToken cs)
     {
         Result<AdminResponseModel> result;
@@ -60,6 +62,7 @@ public class BL_Admin
             result = Result<AdminResponseModel>.Fail(ex);
         }
         return result;
-
     }
+
+    #endregion
 }

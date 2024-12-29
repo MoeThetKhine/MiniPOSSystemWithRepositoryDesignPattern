@@ -4,3 +4,4 @@ global using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Admin;
 global using Microsoft.AspNetCore.Mvc;
 global using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
 global using MiniPOSSystemWithRepositoryDesignPattern.RestApi.Extension;
+global using MiniPOSSystemWithRepositoryDesignPattern.Models.Product;

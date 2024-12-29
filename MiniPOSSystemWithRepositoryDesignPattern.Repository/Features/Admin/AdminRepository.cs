@@ -44,6 +44,8 @@ public class AdminRepository : IAdminRepository
 
     #endregion
 
+    #region CreateAdminAsync
+
     public async Task<Result<AdminRequestModel>> CreateAdminAsync(AdminRequestModel adminRequest, CancellationToken cs)
     {
         Result<AdminRequestModel> result;
@@ -82,6 +84,6 @@ public class AdminRepository : IAdminRepository
         return result;
     }
 
-
+    #endregion
 
 }

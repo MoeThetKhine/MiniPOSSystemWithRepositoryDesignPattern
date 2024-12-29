@@ -12,7 +12,7 @@ public partial class TblAdmin
 
     public string? Email { get; set; }
 
-    public string? PhNo { get; set; }
+    public string PhNo { get; set; }
 
     public string? UserRole { get; set; }
 

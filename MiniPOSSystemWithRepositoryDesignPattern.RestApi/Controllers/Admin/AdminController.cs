@@ -1,4 +1,6 @@
-﻿namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Admin;
+﻿using MiniPOSSystemWithRepositoryDesignPattern.Models.Admin;
+
+namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Admin;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -21,5 +23,13 @@ public class AdminController : ControllerBase
     }
 
     #endregion
+
+    [HttpPost]
+    public async Task<IActionResult> CreateAdminAsync([FromForm]AdminRequestModel adminRequest , CancellationToken cs)
+    {
+        var item = await bL_Admin.CreateAdminAsync(adminRequest , cs);
+        return Ok(item);
+    }
+   
 
 }

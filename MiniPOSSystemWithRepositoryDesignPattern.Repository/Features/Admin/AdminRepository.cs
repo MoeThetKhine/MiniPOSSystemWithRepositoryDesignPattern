@@ -1,6 +1,4 @@
-﻿using System.Threading;
-
-namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Admin;
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Admin;
 
 public class AdminRepository : IAdminRepository
 {

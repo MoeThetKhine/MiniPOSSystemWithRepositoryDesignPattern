@@ -35,4 +35,11 @@ public class AdminController : ControllerBase
 
     #endregion
 
+    [HttpPatch]
+    public async Task<IActionResult> UpdateAdminAsync(string name, AdminResponseModel adminResponse, CancellationToken cs)
+    {
+        var item = await bL_Admin.UpdateAdminAsync(name, adminResponse, cs);
+        return Ok(item);
+    }
+
 }

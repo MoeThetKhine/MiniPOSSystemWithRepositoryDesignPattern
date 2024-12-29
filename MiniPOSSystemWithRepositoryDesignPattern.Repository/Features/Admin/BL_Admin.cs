@@ -8,6 +8,9 @@ public class BL_Admin
     {
         _adminRepository = adminRepository;
     }
+
+    #region GetAdminAsync
+
     public async Task<Result<IEnumerable<AdminModel>>> GetAdminAsync(int pageNo, int pageSize, CancellationToken cs)
     {
         Result<IEnumerable<AdminModel>> result;
@@ -22,4 +25,7 @@ public class BL_Admin
         }
         return result;
     }
+
+    #endregion
+
 }

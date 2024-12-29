@@ -1,5 +1,7 @@
 ﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Models.Admin;
 
+#region AdminRequestModel
+
 public class AdminRequestModel
 {
     public string? UserName { get; set; }
@@ -10,3 +12,5 @@ public class AdminRequestModel
 
     public string? PhNo { get; set; }
 }
+
+#endregion

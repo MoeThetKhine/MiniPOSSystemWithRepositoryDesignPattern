@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
-namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Admin
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Admin
 {
     [Route("api/[controller]")]
     [ApiController]

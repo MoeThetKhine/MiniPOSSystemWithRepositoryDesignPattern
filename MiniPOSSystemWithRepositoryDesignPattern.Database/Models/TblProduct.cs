@@ -16,7 +16,7 @@ public partial class TblProduct
 
     public DateTime? CreatedDate { get; set; }
 
-    public bool? IsDelete { get; set; }
+    public bool IsDelete { get; set; }
 }
 
 #endregion

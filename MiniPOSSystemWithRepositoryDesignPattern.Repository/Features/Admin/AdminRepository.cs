@@ -81,8 +81,10 @@ public class AdminRepository : IAdminRepository
         }
         return result;
     }
-    
+
     #endregion
+
+    #region UpdateAdminAsync
 
     public async Task<Result<AdminResponseModel>> UpdateAdminAsync(string name, AdminResponseModel adminResponse, CancellationToken cs)
     {
@@ -124,4 +126,5 @@ public class AdminRepository : IAdminRepository
         return result;
     }
 
+    #endregion
 }

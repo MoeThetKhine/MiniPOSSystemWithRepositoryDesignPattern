@@ -81,7 +81,47 @@ public class AdminRepository : IAdminRepository
         }
         return result;
     }
-
+    
     #endregion
+
+    public async Task<Result<AdminResponseModel>> UpdateAdminAsync(string name, AdminResponseModel adminResponse, CancellationToken cs)
+    {
+        Result<AdminResponseModel> result;
+
+        try
+        {
+            var admin = _db.TblAdmins.FirstOrDefault(x => x.UserName == name && !x.IsDelete);
+
+            if(admin is null)
+            {
+                result = Result<AdminResponseModel>.NotFound("Admin does not exist.");
+            }
+
+            if(!string.IsNullOrEmpty(adminResponse.UserName))
+            {
+                admin.UserName = adminResponse.UserName;
+            }
+            if(!string.IsNullOrEmpty(adminResponse.Password))
+            {
+                admin.Password = adminResponse.Password;
+            }
+            if (!string.IsNullOrEmpty(adminResponse.PhNo))
+            {
+                admin.PhNo = adminResponse.PhNo;
+            }
+
+            _db.TblAdmins.Attach(admin);
+            _db.Entry(admin).State = EntityState.Modified;
+            await _db.SaveChangesAsync(cs);
+
+            result = Result<AdminResponseModel>.Success( adminResponse);
+
+        }
+        catch(Exception ex)
+        {
+            result = Result<AdminResponseModel>.Fail(ex);
+        }
+        return result;
+    }
 
 }

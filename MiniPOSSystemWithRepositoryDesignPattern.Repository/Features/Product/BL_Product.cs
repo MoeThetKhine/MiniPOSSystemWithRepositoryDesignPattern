@@ -9,6 +9,8 @@ public class BL_Product
         _productRepository = productRepository;
     }
 
+    #region CreateProductAsync
+
     public async Task<Result<ProductRequestModel>> CreateProductAsync(ProductRequestModel productRequestModel, CancellationToken cancellationToken)
     {
         Result<ProductRequestModel> result;
@@ -40,7 +42,6 @@ public class BL_Product
         return result;
     }
 
-
-
+    #endregion
 
 }

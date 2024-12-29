@@ -28,4 +28,18 @@ public class BL_Admin
 
     #endregion
 
+    public async Task<Result<AdminRequestModel>> CreateAdminAsync(AdminRequestModel adminRequest, CancellationToken cs)
+    {
+        Result<AdminRequestModel> result;
+
+        try
+        {
+            result = await _adminRepository.CreateAdminAsync(adminRequest, cs);
+        }
+        catch(Exception ex)
+        {
+            result = Result<AdminRequestModel>.Fail(ex);
+        }
+        return result;
+    }
 }

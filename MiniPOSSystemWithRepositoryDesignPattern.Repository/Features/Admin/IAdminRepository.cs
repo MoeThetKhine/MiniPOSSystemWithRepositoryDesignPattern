@@ -3,4 +3,6 @@
 public interface IAdminRepository
 {
     Task<Result<IEnumerable<AdminModel>>> GetAdminAsync(int pageNo, int pageSize, CancellationToken cs);
+
+    Task<Result<AdminModel>> CreateAdminAsync()
 }

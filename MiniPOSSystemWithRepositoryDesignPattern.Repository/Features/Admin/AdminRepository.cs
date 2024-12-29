@@ -99,7 +99,9 @@ public class AdminRepository : IAdminRepository
                 result = Result<AdminResponseModel>.NotFound("Admin does not exist.");
             }
 
-            if(!string.IsNullOrEmpty(adminResponse.UserName))
+            #region Validation
+
+            if (!string.IsNullOrEmpty(adminResponse.UserName))
             {
                 admin.UserName = adminResponse.UserName;
             }
@@ -111,6 +113,8 @@ public class AdminRepository : IAdminRepository
             {
                 admin.PhNo = adminResponse.PhNo;
             }
+
+            #endregion
 
             _db.TblAdmins.Attach(admin);
             _db.Entry(admin).State = EntityState.Modified;

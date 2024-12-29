@@ -28,6 +28,8 @@ public class BL_Admin
 
     #endregion
 
+    #region CreateAdminAsync
+
     public async Task<Result<AdminRequestModel>> CreateAdminAsync(AdminRequestModel adminRequest, CancellationToken cs)
     {
         Result<AdminRequestModel> result;
@@ -42,4 +44,7 @@ public class BL_Admin
         }
         return result;
     }
+
+    #endregion
+
 }

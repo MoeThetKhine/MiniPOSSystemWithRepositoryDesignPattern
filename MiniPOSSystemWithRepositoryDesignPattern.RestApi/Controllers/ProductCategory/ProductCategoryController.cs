@@ -13,12 +13,16 @@ namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.ProductCa
             _bL_ProductCategory = bL_ProductCategory;
         }
 
+        #region GetProductCategoryAsync
+
         [HttpGet]
         public async Task<IActionResult> GetProductCategoryAsync(int pageNo, int pageSize, CancellationToken cs)
         {
             var item = await _bL_ProductCategory.GetProductCategoryAsync(pageNo, pageSize, cs);
             return Ok(item);
         }
+
+        #endregion
 
     }
 }

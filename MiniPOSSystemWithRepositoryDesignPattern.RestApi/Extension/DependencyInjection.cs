@@ -40,7 +40,8 @@ public static class DependencyInjection
     {
         return services
         .AddScoped<IAdminRepository, AdminRepository>()
-        .AddScoped<IProductRepository, ProductRepository>();
+        .AddScoped<IProductRepository, ProductRepository>()
+        .AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
     }
 
     #endregion
@@ -51,7 +52,9 @@ public static class DependencyInjection
     {
         return services
             .AddScoped<BL_Admin>()
-            .AddScoped<BL_Product>();
+            .AddScoped<BL_Product>()
+            .AddScoped<BL_ProductCategory>();
+
     }
 
     #endregion

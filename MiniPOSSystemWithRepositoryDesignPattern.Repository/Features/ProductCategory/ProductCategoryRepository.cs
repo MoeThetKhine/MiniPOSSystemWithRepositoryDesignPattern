@@ -82,6 +82,8 @@ public class ProductCategoryRepository : IProductCategoryRepository
 
     #endregion
 
+    #region DeleteProductCategoryAsync
+
     public async Task<Result<ProductCategoryModel>> DeleteProductCategoryAsync(string name, CancellationToken cs)
     {
         Result<ProductCategoryModel> result;
@@ -109,4 +111,6 @@ public class ProductCategoryRepository : IProductCategoryRepository
         }
         return result;
     }
+
+    #endregion
 }

@@ -67,6 +67,8 @@ public class BL_Product
 
     #endregion
 
+    #region GetProductByCategoryIdAsync
+
     public async Task<Result<IEnumerable<ProductModel>>> GetProductByCategoryIdAsync(string categoryId, CancellationToken cs)
     {
         Result<IEnumerable<ProductModel>> result;
@@ -81,4 +83,6 @@ public class BL_Product
         }
         return result;
     }
+
+    #endregion
 }

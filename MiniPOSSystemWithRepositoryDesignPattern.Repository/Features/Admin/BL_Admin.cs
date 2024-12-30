@@ -84,6 +84,8 @@ public class BL_Admin
 
     #endregion
 
+    #region ActivateAdminAsync
+
     public async Task<Result<AdminModel>> ActivateAdminAsync(string name, CancellationToken cs)
     {
         Result<AdminModel> result;
@@ -97,4 +99,7 @@ public class BL_Admin
         }
         return result;
     }
+
+    #endregion
+
 }

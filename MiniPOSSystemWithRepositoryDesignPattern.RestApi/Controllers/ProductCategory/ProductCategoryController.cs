@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.ProductCategory;
 
 namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.ProductCategory
 {
@@ -7,5 +8,18 @@ namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.ProductCa
     [ApiController]
     public class ProductCategoryController : ControllerBase
     {
+        private readonly BL_ProductCategory _bL_ProductCategory;
+
+        public ProductCategoryController(BL_ProductCategory bL_ProductCategory)
+        {
+            _bL_ProductCategory = bL_ProductCategory;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetProductCategoryAsync(int pageNo, int pageSize, CancellationToken cs)
+        {
+            var item = await _bL_ProductCategory.GetProductCategoryAsync(pageNo, pageSize, cs);
+            return Ok(item);
+        }
     }
 }

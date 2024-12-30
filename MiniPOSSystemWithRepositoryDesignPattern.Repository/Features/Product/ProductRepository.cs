@@ -51,6 +51,8 @@ public class ProductRepository : IProductRepository
 
     #endregion
 
+    #region GetProductAsync
+
     public async Task<Result<IEnumerable<ProductModel>>> GetProductAsync(CancellationToken cs)
     {
         Result<IEnumerable<ProductModel>> result;
@@ -76,8 +78,9 @@ public class ProductRepository : IProductRepository
             result = Result<IEnumerable<ProductModel>>.Fail(ex);
         }
         return result;
-       
     }
+
+    #endregion
 
     public async Task<Result<IEnumerable<ProductModel>>> GetProductByCategoryIdAsync(string categoryId , CancellationToken cs)
     {

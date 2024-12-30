@@ -50,7 +50,7 @@ public class ProductCategoryRepository : IProductCategoryRepository
             var existingCategory = _db.TblProductCategories.AsNoTracking()
                 .FirstOrDefaultAsync(x => x.ProductCategoryName  == productCategoryRequest.ProductCategoryName && !x.IsDelete);
 
-            if(existingCategory is null)
+            if(existingCategory is not null)
             {
                 result = Result<ProductCategoryRequestModel>.Conflict("Product Category is already exist.");
             }
@@ -82,4 +82,31 @@ public class ProductCategoryRepository : IProductCategoryRepository
 
     #endregion
 
+    public async Task<Result<ProductCategoryModel>> DeleteProductCategoryAsync(string name, CancellationToken cs)
+    {
+        Result<ProductCategoryModel> result;
+
+        try
+        {
+            var category = await _db.TblProductCategories
+                .FirstOrDefaultAsync(x => x.ProductCategoryName == name && !x.IsDelete);
+
+            if(category is null)
+            {
+                result = Result<ProductCategoryModel>.Conflict("Product Category does not exist.");
+            }
+            category.IsDelete = true;
+
+            _db.TblProductCategories.Attach(category);
+            _db.Entry(category).State = EntityState.Modified;
+            await _db.SaveChangesAsync(cs);
+
+            result = Result<ProductCategoryModel>.Success();
+        }
+        catch(Exception ex)
+        {
+            result = Result<ProductCategoryModel>.Fail(ex);
+        }
+        return result;
+    }
 }

@@ -21,5 +21,6 @@ namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.ProductCa
             var item = await _bL_ProductCategory.GetProductCategoryAsync(pageNo, pageSize, cs);
             return Ok(item);
         }
+
     }
 }

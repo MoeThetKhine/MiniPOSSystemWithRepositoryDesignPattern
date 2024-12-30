@@ -55,6 +55,8 @@ public class AdminController : ControllerBase
 
     #endregion
 
+    #region ActivateAdminAsync
+
     [HttpPut]
     public async Task<IActionResult> ActivateAdminAsync(string name, CancellationToken cs)
     {
@@ -62,4 +64,5 @@ public class AdminController : ControllerBase
         return Ok(item);
     }
 
+    #endregion
 }

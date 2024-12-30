@@ -33,6 +33,8 @@ public class ProductController : ControllerBase
 
     #endregion
 
+    #region GetProductByCategoryIdAsync
+
     [HttpGet]
     public async Task<IActionResult> GetProductByCategoryIdAsync(string categoryId , CancellationToken cs)
     {
@@ -40,4 +42,5 @@ public class ProductController : ControllerBase
         return Ok(item);
     }
 
+    #endregion
 }

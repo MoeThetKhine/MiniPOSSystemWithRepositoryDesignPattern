@@ -9,6 +9,7 @@ public class ProductCategoryRepository : IProductCategoryRepository
         _db = db;
     }
 
+   
     #region GetProductCategoryAsync
 
     public async Task<Result<IEnumerable<ProductCategoryModel>>> GetProductCategoryAsync(int pageNo, int pageSize, CancellationToken cs)
@@ -38,4 +39,40 @@ public class ProductCategoryRepository : IProductCategoryRepository
     }
 
     #endregion
+
+    public async Task<Result<ProductCategoryRequestModel>> CreateProductCategoryAsync(ProductCategoryRequestModel productCategoryRequest, CancellationToken cs)
+    {
+        Result<ProductCategoryRequestModel> result;
+
+        try
+        {
+            var existingCategory = _db.TblProductCategories.AsNoTracking()
+                .FirstOrDefaultAsync(x => x.ProductCategoryName  == productCategoryRequest.ProductCategoryName && !x.IsDelete);
+
+            if(existingCategory is null)
+            {
+                result = Result<ProductCategoryRequestModel>.Conflict("Product Category is already exist.");
+            }
+
+            string categoryId = Ulid.NewUlid().ToString();
+
+            var item = new TblProductCategory()
+            {
+                ProductCategoryId = categoryId,
+                ProductCategoryName = productCategoryRequest.ProductCategoryName,
+                IsDelete = false,
+            };
+
+            await _db.TblProductCategories.AddAsync(item, cs);
+            await _db.SaveChangesAsync(cs);
+
+            result = Result<ProductCategoryRequestModel>.Success();
+        }
+        catch(Exception ex)
+        {
+            result = Result<ProductCategoryRequestModel>.Fail(ex);
+        }
+        return result;
+    }
+
 }

@@ -40,6 +40,8 @@ public class ProductCategoryRepository : IProductCategoryRepository
 
     #endregion
 
+    #region CreateProductCategoryAsync
+
     public async Task<Result<ProductCategoryRequestModel>> CreateProductCategoryAsync(ProductCategoryRequestModel productCategoryRequest, CancellationToken cs)
     {
         Result<ProductCategoryRequestModel> result;
@@ -54,6 +56,8 @@ public class ProductCategoryRepository : IProductCategoryRepository
                 result = Result<ProductCategoryRequestModel>.Conflict("Product Category is already exist.");
             }
 
+            #region Create New ProductCategory
+
             string categoryId = Ulid.NewUlid().ToString();
 
             var item = new TblProductCategory()
@@ -62,6 +66,8 @@ public class ProductCategoryRepository : IProductCategoryRepository
                 ProductCategoryName = productCategoryRequest.ProductCategoryName,
                 IsDelete = false,
             };
+
+            #endregion
 
             await _db.TblProductCategories.AddAsync(item, cs);
             await _db.SaveChangesAsync(cs);
@@ -74,5 +80,7 @@ public class ProductCategoryRepository : IProductCategoryRepository
         }
         return result;
     }
+
+    #endregion
 
 }

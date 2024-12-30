@@ -33,6 +33,8 @@ public class ProductCategoryController : ControllerBase
 
     #endregion
 
+    #region DeleteProductCategoryAsync
+
     [HttpPut]
     public async Task<IActionResult> DeleteProductCategoryAsync(string name, CancellationToken cs)
     {
@@ -40,4 +42,5 @@ public class ProductCategoryController : ControllerBase
         return Ok(item);
     }
 
+    #endregion
 }

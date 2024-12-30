@@ -61,6 +61,20 @@ public class BL_Product
             result = Result<IEnumerable<ProductModel>>.Fail(ex);
         }
         return result;
+    }
 
+    public async Task<Result<IEnumerable<ProductModel>>> GetProductByCategoryIdAsync(string categoryId, CancellationToken cs)
+    {
+        Result<IEnumerable<ProductModel>> result;
+
+        try
+        {
+            result = await _productRepository.GetProductByCategoryIdAsync(categoryId , cs);
+        }
+        catch (Exception ex)
+        {
+            result = Result<IEnumerable<ProductModel>>.Fail(ex);
+        }
+        return result;
     }
 }

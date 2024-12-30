@@ -66,6 +66,8 @@ public class BL_Admin
 
     #endregion
 
+    #region DeleteAdminAsync
+
     public async Task<Result<AdminModel>> DeleteAdminAsync(string name, CancellationToken cs)
     {
         Result<AdminModel> result;
@@ -78,6 +80,7 @@ public class BL_Admin
             result = Result<AdminModel>.Fail(ex);
         }
         return result;
-
     }
+
+    #endregion
 }

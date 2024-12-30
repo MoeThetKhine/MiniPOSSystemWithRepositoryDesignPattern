@@ -1,6 +1,4 @@
-﻿using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.ProductCategory;
-
-namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.ProductCategory
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.ProductCategory
 {
     [Route("api/[controller]")]
     [ApiController]

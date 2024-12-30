@@ -7,4 +7,7 @@ public interface IProductCategoryRepository
 
     Task<Result<ProductCategoryRequestModel>> CreateProductCategoryAsync
         (ProductCategoryRequestModel productCategoryRequest, CancellationToken cs);
+
+    Task<Result<ProductCategoryModel>> DeleteProductCategoryAsync
+        (string name, CancellationToken cs);
 }

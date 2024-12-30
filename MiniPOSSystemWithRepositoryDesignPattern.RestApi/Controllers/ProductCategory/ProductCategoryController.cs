@@ -22,11 +22,15 @@ public class ProductCategoryController : ControllerBase
 
     #endregion
 
+    #region CreateProductCategoryAsync
+
     [HttpPost]
     public async Task<IActionResult> CreateProductCategoryAsync(ProductCategoryRequestModel productCategoryRequest, CancellationToken cs)
     {
         var item = await _bL_ProductCategory.CreateProductCategoryAsync(productCategoryRequest, cs);
         return Ok(item);
     }
+
+    #endregion
 
 }

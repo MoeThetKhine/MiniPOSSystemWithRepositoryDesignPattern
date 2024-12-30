@@ -166,4 +166,34 @@ public class AdminRepository : IAdminRepository
 
     #endregion
 
+    public async Task<Result<AdminModel>> ActivateAdminAsync(string name, CancellationToken cs)
+    {
+        Result<AdminModel> result;
+
+        try
+        {
+            var admin = await _db.TblAdmins
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.UserName == name && x.IsDelete);
+
+            if (admin is null)
+            {
+                return Result<AdminModel>.NotFound("Admin does not exist.");
+            }
+
+            admin.IsDelete = false;
+
+            _db.TblAdmins.Attach(admin);
+            _db.Entry(admin).State = EntityState.Modified;
+            await _db.SaveChangesAsync(cs);
+
+            result = Result<AdminModel>.Success();
+        }
+        catch (Exception ex)
+        {
+            result = Result<AdminModel>.Fail(ex);
+        }
+        return result;
+    }
+
 }

@@ -48,4 +48,19 @@ public class BL_Product
 
     #endregion
 
+    public async Task<Result<IEnumerable<ProductModel>>> GetProductAsync(CancellationToken cs)
+    {
+        Result<IEnumerable<ProductModel>> result;
+
+        try
+        {
+            result = await _productRepository.GetProductAsync(cs);
+        }
+        catch(Exception ex)
+        {
+            result = Result<IEnumerable<ProductModel>>.Fail(ex);
+        }
+        return result;
+
+    }
 }

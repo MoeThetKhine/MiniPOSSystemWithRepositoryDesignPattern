@@ -16,7 +16,6 @@ public class ProductModel
 
     public DateTime? CreatedDate { get; set; }
 
-    public bool? IsDelete { get; set; }
 }
 
 #endregion

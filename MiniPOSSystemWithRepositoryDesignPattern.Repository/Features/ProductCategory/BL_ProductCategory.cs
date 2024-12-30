@@ -47,6 +47,8 @@ public class BL_ProductCategory
 
     #endregion
 
+    #region DeleteProductCategoryAsync
+
     public async Task<Result<ProductCategoryModel>> DeleteProductCategoryAsync(string name, CancellationToken cs)
     {
         Result<ProductCategoryModel> result;
@@ -60,6 +62,7 @@ public class BL_ProductCategory
             result = Result<ProductCategoryModel>.Fail(ex);
         }
         return result;
-
     }
+
+    #endregion
 }

@@ -4,7 +4,7 @@
 
 public class ProductCategoryRequestModel
 {
-    public string? ProductCategoryName { get; set; }
+    public string ProductCategoryName { get; set; }
 }
 
 #endregion

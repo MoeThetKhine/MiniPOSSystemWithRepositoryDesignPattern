@@ -8,7 +8,6 @@ public class ProductCategoryRepository : IProductCategoryRepository
     {
         _db = db;
     }
-
    
     #region GetProductCategoryAsync
 

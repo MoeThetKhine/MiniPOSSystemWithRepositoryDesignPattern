@@ -1,4 +1,5 @@
-﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
+﻿
+namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
 
 public class ProductRepository : IProductRepository
 {
@@ -49,5 +50,33 @@ public class ProductRepository : IProductRepository
     }
 
     #endregion
+
+    public async Task<Result<IEnumerable<ProductModel>>> GetProductAsync(CancellationToken cs)
+    {
+        Result<IEnumerable<ProductModel>> result;
+
+        try
+        {
+            var product = _db.TblProducts.AsNoTracking().Where(x => !x.IsDelete);
+
+            var lst = await product.Select(x => new ProductModel()
+            {
+                ProductId =x.ProductId,
+                ProductName = x.ProductName,
+                Description = x.Description,
+                Price = x.Price,
+                ProductCategoryId = x.ProductCategoryId,
+                CreatedDate = x.CreatedDate,
+            }).ToListAsync(cs);
+
+            result = Result<IEnumerable<ProductModel>>.Success(lst);
+        }
+        catch (Exception ex)
+        {
+            result = Result<IEnumerable<ProductModel>>.Fail(ex);
+        }
+        return result;
+       
+    }
 
 }

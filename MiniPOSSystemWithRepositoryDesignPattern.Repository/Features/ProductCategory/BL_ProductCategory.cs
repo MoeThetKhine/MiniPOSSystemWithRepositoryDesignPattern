@@ -47,4 +47,19 @@ public class BL_ProductCategory
 
     #endregion
 
+    public async Task<Result<ProductCategoryModel>> DeleteProductCategoryAsync(string name, CancellationToken cs)
+    {
+        Result<ProductCategoryModel> result;
+
+        try
+        {
+            result = await _productCategory.DeleteProductCategoryAsync(name, cs);
+        }
+        catch(Exception ex)
+        {
+            result = Result<ProductCategoryModel>.Fail(ex);
+        }
+        return result;
+
+    }
 }

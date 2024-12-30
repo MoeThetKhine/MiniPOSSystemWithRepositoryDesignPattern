@@ -79,4 +79,32 @@ public class ProductRepository : IProductRepository
        
     }
 
+    public async Task<Result<IEnumerable<ProductModel>>> GetProductByCategoryIdAsync(string categoryId , CancellationToken cs)
+    {
+        Result<IEnumerable<ProductModel>> result;
+
+        try
+        {
+            var product = _db.TblProducts
+                .AsNoTracking()
+                .Where(x => !x.IsDelete && x.ProductCategoryId == categoryId);
+
+            var lst = await product.Select(x => new ProductModel()
+            {
+                ProductId =x.ProductId,
+                ProductName = x.ProductName,
+                Description = x.Description,
+                Price = x.Price,
+                ProductCategoryId = x.ProductCategoryId,
+                CreatedDate = x.CreatedDate,
+            }).ToListAsync(cs);
+
+            result = Result<IEnumerable<ProductModel>>.Success(lst);
+        }
+        catch (Exception ex)
+        {
+            result = Result<IEnumerable<ProductModel>>.Fail(ex);
+        }
+        return result;
+    }
 }

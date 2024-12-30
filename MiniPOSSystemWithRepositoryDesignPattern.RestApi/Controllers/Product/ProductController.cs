@@ -22,12 +22,16 @@ public class ProductController : ControllerBase
 
     #endregion
 
+    #region GetProductAsync
+
     [HttpGet]
     public async Task<IActionResult> GetProductAsync(CancellationToken cs)
     {
         var item = await _bL_Product.GetProductAsync(cs);
         return Ok(item);
     }
+
+    #endregion
 
     [HttpGet]
     public async Task<IActionResult> GetProductByCategoryIdAsync(string categoryId , CancellationToken cs)

@@ -44,11 +44,15 @@ public class AdminController : ControllerBase
 
     #endregion
 
+    #region DeleteAdminAsync
+
     [HttpDelete]
     public async Task<IActionResult> DeleteAdminAsync(string name, CancellationToken cs)
     {
         var item = await bL_Admin.DeleteAdminAsync(name, cs);
         return Ok(item);
     }
+
+    #endregion
 
 }

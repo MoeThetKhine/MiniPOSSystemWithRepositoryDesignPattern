@@ -29,4 +29,11 @@ public class ProductController : ControllerBase
         return Ok(item);
     }
 
+    [HttpGet]
+    public async Task<IActionResult> GetProductByCategoryIdAsync(string categoryId , CancellationToken cs)
+    {
+        var item = await _bL_Product.GetProductByCategoryIdAsync(categoryId, cs);
+        return Ok(item);
+    }
+
 }

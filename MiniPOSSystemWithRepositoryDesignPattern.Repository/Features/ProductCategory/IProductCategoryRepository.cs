@@ -5,5 +5,6 @@ public interface IProductCategoryRepository
     Task<Result<IEnumerable<ProductCategoryModel>>> GetProductCategoryAsync
         (int pageNo, int pageSize, CancellationToken cs);
 
-    Task<Result>
+    Task<Result<ProductCategoryRequestModel>> CreateProductCategoryAsync
+        (ProductCategoryRequestModel productCategoryRequest, CancellationToken cs);
 }

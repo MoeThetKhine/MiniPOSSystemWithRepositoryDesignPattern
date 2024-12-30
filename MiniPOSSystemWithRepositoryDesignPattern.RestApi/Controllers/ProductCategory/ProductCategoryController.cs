@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.ProductCategory;
+﻿using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.ProductCategory;
 
 namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.ProductCategory
 {

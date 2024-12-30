@@ -9,6 +9,8 @@ public class ProductCategoryRepository : IProductCategoryRepository
         _db = db;
     }
 
+    #region GetProductCategoryAsync
+
     public async Task<Result<IEnumerable<ProductCategoryModel>>> GetProductCategoryAsync(int pageNo, int pageSize, CancellationToken cs)
     {
         Result<IEnumerable<ProductCategoryModel>> result;
@@ -34,4 +36,6 @@ public class ProductCategoryRepository : IProductCategoryRepository
         }
         return result;
     }
+
+    #endregion
 }

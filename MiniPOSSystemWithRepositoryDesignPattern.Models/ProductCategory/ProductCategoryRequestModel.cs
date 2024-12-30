@@ -1,7 +1,6 @@
-﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Models.ProductCategory
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Models.ProductCategory;
+
+public class ProductCategoryRequestModel
 {
-    public class ProductCategoryRequestModel
-    {
-        public string? ProductCategoryName { get; set; }
-    }
+    public string? ProductCategoryName { get; set; }
 }

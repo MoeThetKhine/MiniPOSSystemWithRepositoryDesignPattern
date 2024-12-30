@@ -9,6 +9,4 @@ public interface IAdminRepository
     Task<Result<AdminModel>> DeleteAdminAsync(string name, CancellationToken cs);
     Task<Result<AdminModel>> ActivateAdminAsync(string name, CancellationToken cs);
 
-
-
 }

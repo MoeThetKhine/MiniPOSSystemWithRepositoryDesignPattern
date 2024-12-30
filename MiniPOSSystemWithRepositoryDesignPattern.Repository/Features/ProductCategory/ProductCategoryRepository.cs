@@ -23,9 +23,9 @@ public class ProductCategoryRepository : IProductCategoryRepository
 
             var lst = await category.Select(x => new ProductCategoryModel()
             {
-              ProductCategoryId = x.ProductCategoryId,
-              ProductCategoryName = x.ProductCategoryName,
-              IsDelete = false,
+                ProductCategoryId = x.ProductCategoryId,
+                ProductCategoryName = x.ProductCategoryName,
+                IsDelete = false,
             }).ToListAsync(cs);
 
             result = Result<IEnumerable<ProductCategoryModel>>.Success(lst);

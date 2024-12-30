@@ -27,4 +27,19 @@ public class BL_ProductCategory
     }
 
     #endregion
+
+    public async Task<Result<ProductCategoryRequestModel>> CreateProductCategoryAsync(ProductCategoryRequestModel productCategoryRequest, CancellationToken cs)
+    {
+        Result<ProductCategoryRequestModel> result;
+
+        try
+        {
+            result = await _productCategory.CreateProductCategoryAsync(productCategoryRequest, cs);
+        }
+        catch (Exception ex)
+        {
+            result = Result<ProductCategoryRequestModel>.Fail(ex);
+        }
+        return result;
+    }
 }

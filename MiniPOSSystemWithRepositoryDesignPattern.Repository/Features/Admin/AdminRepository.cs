@@ -142,7 +142,7 @@ public class AdminRepository : IAdminRepository
         {
             var admin = await _db.TblAdmins
                 .AsNoTracking()
-                .FirstOrDefaultAsync(x => x.UserName == name);
+                .FirstOrDefaultAsync(x => x.UserName == name && !x.IsDelete);
 
             if(admin is null)
             {

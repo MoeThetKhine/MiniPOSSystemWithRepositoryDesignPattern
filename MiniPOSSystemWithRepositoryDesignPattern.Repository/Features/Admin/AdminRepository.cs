@@ -132,6 +132,8 @@ public class AdminRepository : IAdminRepository
 
     #endregion
 
+    #region DeleteAdminAsync
+
     public async Task<Result<AdminModel>> DeleteAdminAsync(string name , CancellationToken cs)
     {
         Result<AdminModel> result;
@@ -161,5 +163,7 @@ public class AdminRepository : IAdminRepository
         }
         return result;
     }
+
+    #endregion
 
 }

@@ -9,6 +9,8 @@ public class BL_ProductCategory
         _productCategory = productCategory;
     }
 
+    #region GetProductCategoryAsync
+
     public async Task<Result<IEnumerable<ProductCategoryModel>>> GetProductCategoryAsync(int pageNo, int pageSize, CancellationToken cs)
     {
         Result<IEnumerable<ProductCategoryModel>> result;
@@ -23,4 +25,6 @@ public class BL_ProductCategory
         }
         return result;
     }
+
+    #endregion
 }

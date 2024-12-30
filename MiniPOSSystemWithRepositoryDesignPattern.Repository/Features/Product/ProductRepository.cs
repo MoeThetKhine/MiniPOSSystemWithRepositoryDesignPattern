@@ -1,5 +1,4 @@
-﻿
-namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
 
 public class ProductRepository : IProductRepository
 {
@@ -82,6 +81,8 @@ public class ProductRepository : IProductRepository
 
     #endregion
 
+    #region GetProductByCategoryIdAsync
+
     public async Task<Result<IEnumerable<ProductModel>>> GetProductByCategoryIdAsync(string categoryId , CancellationToken cs)
     {
         Result<IEnumerable<ProductModel>> result;
@@ -110,4 +111,7 @@ public class ProductRepository : IProductRepository
         }
         return result;
     }
+
+    #endregion
+
 }

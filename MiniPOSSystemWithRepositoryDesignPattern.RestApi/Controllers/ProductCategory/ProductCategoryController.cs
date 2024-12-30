@@ -1,4 +1,6 @@
-﻿namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.ProductCategory;
+﻿using MiniPOSSystemWithRepositoryDesignPattern.Models.ProductCategory;
+
+namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.ProductCategory;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -21,5 +23,12 @@ public class ProductCategoryController : ControllerBase
     }
 
     #endregion
+
+    [HttpPost]
+    public async Task<IActionResult> CreateProductCategoryAsync(ProductCategoryRequestModel productCategoryRequest, CancellationToken cs)
+    {
+        var item = await _bL_ProductCategory.CreateProductCategoryAsync(productCategoryRequest, cs);
+        return Ok(item);
+    }
 
 }

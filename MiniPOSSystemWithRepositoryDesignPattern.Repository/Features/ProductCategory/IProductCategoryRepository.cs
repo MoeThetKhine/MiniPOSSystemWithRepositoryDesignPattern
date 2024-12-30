@@ -1,6 +1,4 @@
-﻿using MiniPOSSystemWithRepositoryDesignPattern.Models.ProductCategory;
-
-namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.ProductCategory;
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.ProductCategory;
 
 public interface IProductCategoryRepository
 {

@@ -33,4 +33,11 @@ public class ProductCategoryController : ControllerBase
 
     #endregion
 
+    [HttpPut]
+    public async Task<IActionResult> DeleteProductCategoryAsync(string name, CancellationToken cs)
+    {
+        var item = await _bL_ProductCategory.DeleteProductCategoryAsync(name, cs);
+        return Ok(item);
+    }
+
 }

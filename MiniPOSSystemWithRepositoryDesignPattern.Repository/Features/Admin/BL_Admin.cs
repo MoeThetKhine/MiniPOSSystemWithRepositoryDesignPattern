@@ -83,4 +83,18 @@ public class BL_Admin
     }
 
     #endregion
+
+    public async Task<Result<AdminModel>> ActivateAdminAsync(string name, CancellationToken cs)
+    {
+        Result<AdminModel> result;
+        try
+        {
+            result = await _adminRepository.ActivateAdminAsync(name, cs);
+        }
+        catch (Exception ex)
+        {
+            result = Result<AdminModel>.Fail(ex);
+        }
+        return result;
+    }
 }

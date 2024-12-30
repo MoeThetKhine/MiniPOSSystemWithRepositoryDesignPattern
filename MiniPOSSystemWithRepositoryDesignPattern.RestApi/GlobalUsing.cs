@@ -7,3 +7,5 @@ global using MiniPOSSystemWithRepositoryDesignPattern.RestApi.Extension;
 global using MiniPOSSystemWithRepositoryDesignPattern.Models.Product;
 global using MiniPOSSystemWithRepositoryDesignPattern.Models.Admin;
 global using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.ProductCategory;
+global using MiniPOSSystemWithRepositoryDesignPattern.Models.ProductCategory;
+

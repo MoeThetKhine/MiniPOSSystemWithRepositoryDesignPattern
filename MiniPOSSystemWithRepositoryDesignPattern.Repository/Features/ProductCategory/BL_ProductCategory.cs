@@ -28,6 +28,8 @@ public class BL_ProductCategory
 
     #endregion
 
+    #region CreateProductCategoryAsync
+
     public async Task<Result<ProductCategoryRequestModel>> CreateProductCategoryAsync(ProductCategoryRequestModel productCategoryRequest, CancellationToken cs)
     {
         Result<ProductCategoryRequestModel> result;
@@ -42,4 +44,7 @@ public class BL_ProductCategory
         }
         return result;
     }
+
+    #endregion
+
 }

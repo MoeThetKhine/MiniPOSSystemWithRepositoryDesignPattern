@@ -57,7 +57,7 @@ public class BL_Admin
         {
             result = await _adminRepository.UpdateAdminAsync(name, adminResponse, cs);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             result = Result<AdminResponseModel>.Fail(ex);
         }
@@ -65,4 +65,19 @@ public class BL_Admin
     }
 
     #endregion
+
+    public async Task<Result<AdminModel>> DeleteAdminAsync(string name, CancellationToken cs)
+    {
+        Result<AdminModel> result;
+        try
+        {
+            result = await _adminRepository.DeleteAdminAsync(name, cs);
+        }
+        catch(Exception ex)
+        {
+            result = Result<AdminModel>.Fail(ex);
+        }
+        return result;
+
+    }
 }

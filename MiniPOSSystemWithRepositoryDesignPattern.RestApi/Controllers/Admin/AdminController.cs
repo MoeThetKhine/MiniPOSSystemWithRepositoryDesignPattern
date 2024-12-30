@@ -55,4 +55,11 @@ public class AdminController : ControllerBase
 
     #endregion
 
+    [HttpPut]
+    public async Task<IActionResult> ActivateAdminAsync(string name, CancellationToken cs)
+    {
+        var item = await bL_Admin.ActivateAdminAsync(name, cs);
+        return Ok(item);
+    }
+
 }

@@ -9,6 +9,8 @@ public class SaleRepository : ISaleRepository
         _appDbContext = appDbContext;
     }
 
+    #region CreateSaleAsync
+
     public async Task<Result<SaleRequestModel>> CreateSaleAsync(SaleRequestModel saleRequest, CancellationToken cancellationToken)
     {
         Result<SaleRequestModel> result;
@@ -37,6 +39,8 @@ public class SaleRepository : ISaleRepository
         }
         return result;
     }
+
+    #endregion
 
     #region GetSaleListAsync
 

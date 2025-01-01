@@ -1,6 +1,4 @@
-﻿using MiniPOSSystemWithRepositoryDesignPattern.Models.Sale;
-
-namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Sale
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Sale
 {
     public class SaleRepository : ISaleRepository
     {

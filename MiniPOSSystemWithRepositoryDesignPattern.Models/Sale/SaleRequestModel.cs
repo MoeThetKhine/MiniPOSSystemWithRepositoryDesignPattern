@@ -1,5 +1,7 @@
 ﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Models.Sale;
 
+#region SaleRequestModel
+
 public class SaleRequestModel
 {
     public string? ProductId { get; set; }
@@ -10,3 +12,5 @@ public class SaleRequestModel
 
     public DateTime? CreateDate { get; set; }
 }
+
+#endregion

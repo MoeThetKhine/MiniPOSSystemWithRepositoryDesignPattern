@@ -1,5 +1,7 @@
 ﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Product;
 
+#region IProductRepository
+
 public interface IProductRepository
 {
     Task<Result<IEnumerable<ProductModel>>> GetProductAsync (CancellationToken cs);
@@ -10,3 +12,5 @@ public interface IProductRepository
     Task<Result<ProductResponseModel>> UpdateProductAsync
         (string productId, ProductResponseModel productResponse, CancellationToken cs);
 }
+
+#endregion

@@ -9,6 +9,8 @@ public class BL_Invoice
         _invoiceRepository = invoiceRepository;
     }
 
+    #region GetInvoiceListAsync
+
     public async Task<Result<IEnumerable<InvoiceModel>>> GetInvoiceListAsync(int pageNo, int pageSize, CancellationToken cs)
     {
         Result<IEnumerable<InvoiceModel>> result;
@@ -23,4 +25,7 @@ public class BL_Invoice
         }
         return result;
     }
+
+    #endregion
+
 }

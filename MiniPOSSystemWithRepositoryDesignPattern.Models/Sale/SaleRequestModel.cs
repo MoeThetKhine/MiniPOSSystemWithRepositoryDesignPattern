@@ -1,13 +1,12 @@
-﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Models.Sale
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Models.Sale;
+
+public class SaleRequestModel
 {
-    public class SaleRequestModel
-    {
-        public string? ProductId { get; set; }
+    public string? ProductId { get; set; }
 
-        public string? InvoiceId { get; set; }
+    public string? InvoiceId { get; set; }
 
-        public decimal? UnitPrice { get; set; }
+    public decimal? UnitPrice { get; set; }
 
-        public DateTime? CreateDate { get; set; }
-    }
+    public DateTime? CreateDate { get; set; }
 }

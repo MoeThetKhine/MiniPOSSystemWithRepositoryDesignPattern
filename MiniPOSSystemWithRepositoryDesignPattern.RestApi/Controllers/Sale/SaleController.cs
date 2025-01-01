@@ -1,4 +1,6 @@
-﻿namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Sale;
+﻿using MiniPOSSystemWithRepositoryDesignPattern.Models.Sale;
+
+namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Sale;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -21,5 +23,12 @@ public class SaleController : ControllerBase
     }
 
     #endregion
+
+    [HttpPost]
+    public async Task<IActionResult> CreateSaleAsync(SaleRequestModel saleRequest, CancellationToken cancellationToken)
+    {
+        var result = await _bL_Sale.CreateSaleAsync(saleRequest, cancellationToken);
+        return Ok(result);
+    }
 
 }

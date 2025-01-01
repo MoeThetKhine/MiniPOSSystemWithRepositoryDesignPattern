@@ -9,5 +9,4 @@ global using MiniPOSSystemWithRepositoryDesignPattern.Models.Admin;
 global using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.ProductCategory;
 global using MiniPOSSystemWithRepositoryDesignPattern.Models.ProductCategory;
 global using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Sale;
-
-
+global using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Invoice;

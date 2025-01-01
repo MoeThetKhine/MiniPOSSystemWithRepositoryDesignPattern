@@ -11,6 +11,8 @@ namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Invoice
             _db = appDbContext;
         }
 
+        #region GetInvoiceListAsync
+
         public async Task<Result<IEnumerable<InvoiceModel>>> GetInvoiceListAsync(int pageNo, int pageSize, CancellationToken cs)
         {
             Result<IEnumerable<InvoiceModel>> result;
@@ -35,5 +37,8 @@ namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Invoice
             }
             return result;
         }
+
+        #endregion
+
     }
 }

@@ -1,27 +1,26 @@
-﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Invoice
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Invoice;
+
+public class BL_Invoice
 {
-    public class BL_Invoice
+    private readonly IInvoiceRepository _invoiceRepository;
+
+    public BL_Invoice(IInvoiceRepository invoiceRepository)
     {
-        private readonly IInvoiceRepository _invoiceRepository;
+        _invoiceRepository = invoiceRepository;
+    }
 
-        public BL_Invoice(IInvoiceRepository invoiceRepository)
+    public async Task<Result<IEnumerable<InvoiceModel>>> GetInvoiceListAsync(int pageNo, int pageSize, CancellationToken cs)
+    {
+        Result<IEnumerable<InvoiceModel>> result;
+
+        try
         {
-            _invoiceRepository = invoiceRepository;
+            result = await _invoiceRepository.GetInvoiceListAsync(pageNo, pageSize, cs);
         }
-
-        public async Task<Result<IEnumerable<InvoiceModel>>> GetInvoiceListAsync(int pageNo, int pageSize, CancellationToken cs)
+        catch (Exception ex)
         {
-            Result<IEnumerable<InvoiceModel>> result;
-
-            try
-            {
-                result = await _invoiceRepository.GetInvoiceListAsync(pageNo, pageSize, cs);
-            }
-            catch (Exception ex)
-            {
-                result = Result<IEnumerable<InvoiceModel>>.Fail(ex);
-            }
-            return result;
+            result = Result<IEnumerable<InvoiceModel>>.Fail(ex);
         }
+        return result;
     }
 }

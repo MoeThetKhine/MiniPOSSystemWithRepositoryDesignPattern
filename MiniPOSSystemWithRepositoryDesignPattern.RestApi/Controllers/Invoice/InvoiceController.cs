@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Invoice;
+﻿using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Invoice;
 
 namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Invoice
 {

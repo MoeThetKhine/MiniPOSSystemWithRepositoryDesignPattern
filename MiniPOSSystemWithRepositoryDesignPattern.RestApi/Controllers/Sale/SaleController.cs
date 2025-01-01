@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Sale;
+﻿using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Sale;
 
 namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Sale
 {

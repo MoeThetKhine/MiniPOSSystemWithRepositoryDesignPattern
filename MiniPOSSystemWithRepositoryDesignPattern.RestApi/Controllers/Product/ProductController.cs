@@ -44,10 +44,14 @@ public class ProductController : ControllerBase
 
     #endregion
 
+    #region UpdateProductAsync
+
     [HttpPatch]
     public async Task<IActionResult> UpdateProductAsync(string productId, ProductResponseModel productResponse , CancellationToken cs)
     {
         var item = await _bL_Product.UpdateProductAsync(productId, productResponse, cs);
         return Ok(item);
     }
+
+    #endregion
 }

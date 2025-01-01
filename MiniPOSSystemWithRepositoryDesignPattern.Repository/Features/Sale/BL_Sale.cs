@@ -9,6 +9,8 @@ public class BL_Sale
         _saleRepository = saleRepository;
     }
 
+    #region GetSaleListAsync
+
     public async Task<Result<IEnumerable<SaleModel>>> GetSaleListAsync(int pageSize, int pageNo, CancellationToken cs)
     {
         Result<IEnumerable<SaleModel>> result;
@@ -23,4 +25,7 @@ public class BL_Sale
         }
         return result;
     }
+
+    #endregion
+
 }

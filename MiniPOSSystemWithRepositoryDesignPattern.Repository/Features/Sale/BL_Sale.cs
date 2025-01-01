@@ -28,6 +28,8 @@ public class BL_Sale
 
     #endregion
 
+    #region CreateSaleAsync
+
     public async Task<Result<SaleRequestModel>> CreateSaleAsync(SaleRequestModel saleRequest, CancellationToken cancellationToken)
     {
         Result<SaleRequestModel> result;
@@ -42,4 +44,6 @@ public class BL_Sale
         }
         return result;
     }
+
+    #endregion
 }

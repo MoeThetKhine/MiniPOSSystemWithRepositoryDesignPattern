@@ -114,4 +114,43 @@ public class ProductRepository : IProductRepository
 
     #endregion
 
+    public async Task<Result<ProductResponseModel>> UpdateProductAsync(string productId, ProductResponseModel productResponse, CancellationToken cs)
+    {
+        Result<ProductResponseModel> result;
+        try
+        {
+            var product = await _db.TblProducts
+                .FirstOrDefaultAsync(x => x.ProductId == productId && !x.IsDelete);
+
+            if(product is null)
+            {
+                result = Result<ProductResponseModel>.Fail("Product does not exist.");
+            }
+
+            if(!string.IsNullOrEmpty(productResponse.ProductName))
+            {
+                product.ProductName = productResponse.ProductName;
+            }
+            if (!string.IsNullOrEmpty(productResponse.Description))
+            {
+                product.Description = productResponse.Description;
+            }
+            if (productResponse.Price.HasValue && productResponse.Price.Value > 0)
+            {
+                product.Price = productResponse.Price.Value;
+            }
+
+            _db.TblProducts.Attach(product);
+            _db.Entry(product).State = EntityState.Modified;
+            await _db.SaveChangesAsync(cs);
+
+            result = Result<ProductResponseModel>.Success(productResponse);
+        }
+        catch(Exception ex)
+        {
+            result = Result<ProductResponseModel>.Fail(ex);
+        }
+        return result;
+    }
+
 }

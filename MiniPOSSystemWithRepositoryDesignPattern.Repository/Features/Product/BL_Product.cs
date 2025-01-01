@@ -86,6 +86,8 @@ public class BL_Product
 
     #endregion
 
+    #region UpdateProductAsync
+
     public async Task<Result<ProductResponseModel>> UpdateProductAsync(string productId, ProductResponseModel productResponse, CancellationToken cs)
     {
         Result<ProductResponseModel> result;
@@ -100,4 +102,7 @@ public class BL_Product
         }
         return result;
     }
+
+    #endregion
+
 }

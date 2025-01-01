@@ -28,4 +28,18 @@ public class BL_Sale
 
     #endregion
 
+    public async Task<Result<SaleRequestModel>> CreateSaleAsync(SaleRequestModel saleRequest, CancellationToken cancellationToken)
+    {
+        Result<SaleRequestModel> result;
+
+        try
+        {
+            result = await _saleRepository.CreateSaleAsync(saleRequest, cancellationToken);
+        }
+        catch (Exception ex)
+        {
+            result = Result<SaleRequestModel>.Fail(ex);
+        }
+        return result;
+    }
 }

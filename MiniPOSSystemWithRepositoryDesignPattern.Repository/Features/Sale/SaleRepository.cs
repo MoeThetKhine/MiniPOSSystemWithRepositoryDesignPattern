@@ -9,6 +9,35 @@ public class SaleRepository : ISaleRepository
         _appDbContext = appDbContext;
     }
 
+    public async Task<Result<SaleRequestModel>> CreateSaleAsync(SaleRequestModel saleRequest, CancellationToken cancellationToken)
+    {
+        Result<SaleRequestModel> result;
+
+        try
+        {
+            string saleId = Ulid.NewUlid().ToString();
+
+            var item = new TblSale()
+            {
+                SaleId = saleId,
+                ProductId = saleRequest.ProductId,
+                InvoiceId = saleRequest.InvoiceId,
+                UnitPrice = saleRequest.UnitPrice,
+                CreateDate = DateTime.Now,
+            };
+
+            await _appDbContext.TblSales.AddAsync(item, cancellationToken);
+            await _appDbContext.SaveChangesAsync(cancellationToken);
+
+            result = Result<SaleRequestModel>.Success();
+        }
+        catch (Exception ex)
+        {
+            result = Result<SaleRequestModel>.Fail(ex);
+        }
+        return result;
+    }
+
     #region GetSaleListAsync
 
     public async Task<Result<IEnumerable<SaleModel>>> GetSaleListAsync(int pageSize, int pageNo, CancellationToken cs)

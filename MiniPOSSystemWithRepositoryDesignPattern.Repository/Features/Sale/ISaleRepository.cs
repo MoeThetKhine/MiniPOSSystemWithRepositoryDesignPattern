@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiniPOSSystemWithRepositoryDesignPattern.Models.Sale;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Sale
 {
     public interface ISaleRepository
     {
+        Task<Result<IEnumerable<SaleModel>>> GetSaleListAsync(int pageSize , int pageNo , CancellationToken cs);
     }
 }

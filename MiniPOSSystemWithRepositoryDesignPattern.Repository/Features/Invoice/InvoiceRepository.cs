@@ -27,7 +27,7 @@ namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Invoice
                     IsDelete = x.IsDelete
                 }).ToListAsync();
 
-                result = Res
+                result = Result<IEnumerable<InvoiceModel>>.Success(lst);
             }
             catch (Exception ex)
             {

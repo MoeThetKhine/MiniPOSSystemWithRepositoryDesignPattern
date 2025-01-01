@@ -1,6 +1,4 @@
-﻿using MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Sale;
-
-namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Sale;
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Sale;
 
 [Route("api/[controller]")]
 [ApiController]

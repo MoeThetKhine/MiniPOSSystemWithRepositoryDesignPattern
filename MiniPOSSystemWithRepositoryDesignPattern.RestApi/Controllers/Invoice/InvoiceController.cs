@@ -15,11 +15,16 @@ namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Invoice
             _bL_Invoice = bL_Invoice;
         }
 
+        #region GetInvoiceListAsync
+
         [HttpGet]
         public async Task<IActionResult> GetInvoiceListAsync(int pageNo, int pageSize, CancellationToken cs)
         {
             var result = await _bL_Invoice.GetInvoiceListAsync(pageNo, pageSize, cs);
             return Ok(result);
         }
+
+        #endregion
+
     }
 }

@@ -11,10 +11,15 @@ public class SaleController : ControllerBase
         _bL_Sale = bL_Sale;
     }
 
+    #region GetSaleListAsync
+
     [HttpGet]
     public async Task<IActionResult> GetSaleListAsync(int pageSize, int pageNo, CancellationToken cs)
     {
         var result = await _bL_Sale.GetSaleListAsync(pageSize, pageNo, cs); 
         return Ok(result);
     }
+
+    #endregion
+
 }

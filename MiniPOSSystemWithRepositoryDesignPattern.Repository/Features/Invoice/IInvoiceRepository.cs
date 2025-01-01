@@ -1,6 +1,4 @@
-﻿using MiniPOSSystemWithRepositoryDesignPattern.Models.Invoice;
-
-namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Invoice
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Invoice
 {
     public interface IInvoiceRepository
     {

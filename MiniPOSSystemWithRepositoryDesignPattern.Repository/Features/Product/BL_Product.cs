@@ -58,7 +58,7 @@ public class BL_Product
         {
             result = await _productRepository.GetProductAsync(cs);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             result = Result<IEnumerable<ProductModel>>.Fail(ex);
         }
@@ -75,7 +75,7 @@ public class BL_Product
 
         try
         {
-            result = await _productRepository.GetProductByCategoryIdAsync(categoryId , cs);
+            result = await _productRepository.GetProductByCategoryIdAsync(categoryId, cs);
         }
         catch (Exception ex)
         {
@@ -85,4 +85,19 @@ public class BL_Product
     }
 
     #endregion
+
+    public async Task<Result<ProductResponseModel>> UpdateProductAsync(string productId, ProductResponseModel productResponse, CancellationToken cs)
+    {
+        Result<ProductResponseModel> result;
+
+        try
+        {
+            result = await _productRepository.UpdateProductAsync(productId, productResponse, cs);
+        }
+        catch (Exception ex)
+        {
+            result =Result<ProductResponseModel>.Fail(ex);
+        }
+        return result;
+    }
 }

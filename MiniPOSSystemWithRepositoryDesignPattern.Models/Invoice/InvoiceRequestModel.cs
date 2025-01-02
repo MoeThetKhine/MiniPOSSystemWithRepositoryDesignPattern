@@ -1,5 +1,7 @@
 ﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Models.Invoice;
 
+#region InvoiceRequestModel
+
 public class InvoiceRequestModel
 {
     public DateTime? InvoiceDate { get; set; }
@@ -7,3 +9,5 @@ public class InvoiceRequestModel
     public decimal? TotalAmount { get; set; }
 
 }
+
+#endregion

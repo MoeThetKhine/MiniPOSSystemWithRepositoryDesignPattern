@@ -1,7 +1,4 @@
-﻿using MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
-using System.Threading;
-
-namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Invoice;
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Invoice;
 
 public class InvoiceRepository : IInvoiceRepository
 {

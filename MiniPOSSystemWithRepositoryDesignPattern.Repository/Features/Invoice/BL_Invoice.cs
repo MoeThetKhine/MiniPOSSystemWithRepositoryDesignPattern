@@ -28,4 +28,17 @@ public class BL_Invoice
 
     #endregion
 
+    public async Task<Result<InvoiceRequestModel>> CreateInvoiceAsync(InvoiceRequestModel invoiceRequest, CancellationToken cs)
+    {
+        Result<InvoiceRequestModel> result;
+        try
+        {
+            result = await _invoiceRepository.CreateInvoiceAsync(invoiceRequest, cs);
+        }
+        catch (Exception ex)
+        {
+            result = Result<InvoiceRequestModel>.Fail(ex);
+        }
+        return result;
+    }
 }

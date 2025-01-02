@@ -27,10 +27,10 @@ public class SaleRepository : ISaleRepository
                  result = Result<SaleRequestModel>.NotFound("Product does not exist.");
              }
 
-             if(invoice is null)
-            {
-                result = Result<SaleRequestModel>.NotFound("Invoice does not exist.");
-            }
+             if (invoice is null)
+             {
+                 result = Result<SaleRequestModel>.NotFound("Invoice does not exist.");
+             }
 
             var item = new TblSale()
             {

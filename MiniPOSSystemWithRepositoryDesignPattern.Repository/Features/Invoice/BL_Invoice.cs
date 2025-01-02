@@ -28,6 +28,8 @@ public class BL_Invoice
 
     #endregion
 
+    #region CreateInvoiceAsync
+
     public async Task<Result<InvoiceRequestModel>> CreateInvoiceAsync(InvoiceRequestModel invoiceRequest, CancellationToken cs)
     {
         Result<InvoiceRequestModel> result;
@@ -41,4 +43,7 @@ public class BL_Invoice
         }
         return result;
     }
+
+    #endregion
+
 }

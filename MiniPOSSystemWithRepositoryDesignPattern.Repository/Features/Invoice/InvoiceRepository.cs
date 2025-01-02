@@ -9,6 +9,8 @@ public class InvoiceRepository : IInvoiceRepository
         _db = appDbContext;
     }
 
+    #region CreateInvoiceAsync
+
     public async Task<Result<InvoiceRequestModel>> CreateInvoiceAsync(InvoiceRequestModel invoiceRequest, CancellationToken cs)
     {
         Result<InvoiceRequestModel> result;
@@ -35,6 +37,8 @@ public class InvoiceRepository : IInvoiceRepository
         }
         return result;
     }
+
+    #endregion
 
     #region GetInvoiceListAsync
 

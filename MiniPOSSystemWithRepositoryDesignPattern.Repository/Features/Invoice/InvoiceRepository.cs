@@ -1,4 +1,7 @@
-﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Invoice;
+﻿using MiniPOSSystemWithRepositoryDesignPattern.Database.Models;
+using System.Threading;
+
+namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.Invoice;
 
 public class InvoiceRepository : IInvoiceRepository
 {
@@ -7,6 +10,33 @@ public class InvoiceRepository : IInvoiceRepository
     public InvoiceRepository(AppDbContext appDbContext)
     {
         _db = appDbContext;
+    }
+
+    public async Task<Result<InvoiceRequestModel>> CreateInvoiceAsync(InvoiceRequestModel invoiceRequest, CancellationToken cs)
+    {
+        Result<InvoiceRequestModel> result;
+        try
+        {
+            string invoiceId = Ulid.NewUlid().ToString();
+
+            var item = new TblInvoice()
+            {
+                InvoiceId = invoiceId,
+                InvoiceDate = DateTime.Now,
+                TotalAmount = invoiceRequest.TotalAmount,
+            };
+
+            await _db.TblInvoices.AddAsync(item,cs);
+            await _db.SaveChangesAsync(cs);
+
+            result = Result<InvoiceRequestModel>.Success();
+
+        }
+        catch (Exception ex)
+        {
+            result = Result<InvoiceRequestModel>.Fail(ex);
+        }
+        return result;
     }
 
     #region GetInvoiceListAsync

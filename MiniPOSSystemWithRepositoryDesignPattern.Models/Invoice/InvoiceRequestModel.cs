@@ -1,10 +1,9 @@
-﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Models.Invoice
+﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Models.Invoice;
+
+public class InvoiceRequestModel
 {
-    public class InvoiceRequestModel
-    {
-        public DateTime? InvoiceDate { get; set; }
+    public DateTime? InvoiceDate { get; set; }
 
-        public decimal? TotalAmount { get; set; }
+    public decimal? TotalAmount { get; set; }
 
-    }
 }

@@ -19,6 +19,19 @@ public class SaleRepository : ISaleRepository
         {
             string saleId = Ulid.NewUlid().ToString();
 
+            var product = _appDbContext.TblProducts.FirstOrDefaultAsync(x => x.ProductId == saleRequest.ProductId);
+            var invoice = _appDbContext.TblInvoices.FirstOrDefaultAsync(x => x.InvoiceId == saleRequest.InvoiceId);
+
+             if (product is null)
+             {
+                 result = Result<SaleRequestModel>.NotFound("Product does not exist.");
+             }
+
+             if(invoice is null)
+            {
+                result = Result<SaleRequestModel>.NotFound("Invoice does not exist.");
+            }
+
             var item = new TblSale()
             {
                 SaleId = saleId,

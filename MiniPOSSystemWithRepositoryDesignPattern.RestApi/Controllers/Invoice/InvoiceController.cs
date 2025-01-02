@@ -1,4 +1,6 @@
-﻿namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Invoice;
+﻿using MiniPOSSystemWithRepositoryDesignPattern.Models.Invoice;
+
+namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Invoice;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -21,5 +23,12 @@ public class InvoiceController : ControllerBase
     }
 
     #endregion
+
+    [HttpPost]
+    public async Task<IActionResult> CreateInvoiceAsync(InvoiceRequestModel invoiceRequest, CancellationToken cs)
+    {
+        var result = await _bL_Invoice.CreateInvoiceAsync(invoiceRequest, cs);
+        return Ok(result);
+    }
 
 }

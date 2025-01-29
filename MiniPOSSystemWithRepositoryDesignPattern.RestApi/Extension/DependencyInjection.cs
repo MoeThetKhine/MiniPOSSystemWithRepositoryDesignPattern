@@ -13,35 +13,42 @@ public static class DependencyInjection
             .AddBusinessLogicService();
     }
 
-    #endregion
+	#endregion
 
-    #region AddDbContextService
+	#region AddDbContextService
 
-    private static IServiceCollection AddDbContextService(this IServiceCollection services, WebApplicationBuilder builder)
-    {
-        builder.Services
-         .AddDbContext<AppDbContext>(opt =>
-         {
-             opt.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-         })
-         .AddControllers().AddJsonOptions(opt =>
-         {
-             opt.JsonSerializerOptions.PropertyNamingPolicy = null;
-         });
+	private static IServiceCollection AddDbContextService(this IServiceCollection services, WebApplicationBuilder builder)
+	{
+		builder.Services
+			.AddDbContext<AppDbContext>(opt =>
+			{
+				opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")); // Add database provider
+				opt.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+			});
 
-        return services;
-    }
+		builder.Services
+			.AddControllers()
+			.AddJsonOptions(opt =>
+			{
+				opt.JsonSerializerOptions.PropertyNamingPolicy = null;
+			});
 
-    #endregion
+		return services;
+	}
 
-    #region AddDataAccessService
+	#endregion
 
-    private static IServiceCollection AddDataAccessService(this IServiceCollection services)
+	#region AddDataAccessService
+
+	private static IServiceCollection AddDataAccessService(this IServiceCollection services)
     {
         return services
         .AddScoped<IAdminRepository, AdminRepository>()
         .AddScoped<IProductRepository, ProductRepository>()
-        .AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
+        .AddScoped<IProductCategoryRepository, ProductCategoryRepository>()
+        .AddScoped<IInvoiceRepository, InvoiceRepository>()
+        .AddScoped<ISaleRepository, SaleRepository>();
+
     }
 
     #endregion
@@ -53,7 +60,9 @@ public static class DependencyInjection
         return services
             .AddScoped<BL_Admin>()
             .AddScoped<BL_Product>()
-            .AddScoped<BL_ProductCategory>();
+            .AddScoped<BL_ProductCategory>()
+            .AddScoped<BL_Invoice>()
+            .AddScoped<BL_Sale>();
 
     }
 

@@ -1,5 +1,7 @@
 ﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Repository.Features.ProductCategory;
 
+#region IProductCategoryRepository
+
 public interface IProductCategoryRepository
 {
     Task<Result<IEnumerable<ProductCategoryModel>>> GetProductCategoryAsync
@@ -11,3 +13,5 @@ public interface IProductCategoryRepository
     Task<Result<ProductCategoryModel>> DeleteProductCategoryAsync
         (string name, CancellationToken cs);
 }
+
+#endregion

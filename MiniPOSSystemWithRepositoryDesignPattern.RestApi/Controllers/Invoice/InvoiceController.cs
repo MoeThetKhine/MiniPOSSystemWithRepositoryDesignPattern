@@ -1,5 +1,4 @@
-﻿using MiniPOSSystemWithRepositoryDesignPattern.Models.Invoice;
-
+﻿
 namespace MiniPOSSystemWithRepositoryDesignPattern.RestApi.Controllers.Invoice;
 
 [Route("api/[controller]")]

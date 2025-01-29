@@ -112,9 +112,11 @@ public class ProductRepository : IProductRepository
         return result;
     }
 
-    #endregion
+	#endregion
 
-    public async Task<Result<ProductResponseModel>> UpdateProductAsync(string productId, ProductResponseModel productResponse, CancellationToken cs)
+	#region UpdateProductAsync
+
+	public async Task<Result<ProductResponseModel>> UpdateProductAsync(string productId, ProductResponseModel productResponse, CancellationToken cs)
     {
         Result<ProductResponseModel> result;
         try
@@ -156,5 +158,7 @@ public class ProductRepository : IProductRepository
         }
         return result;
     }
+
+	#endregion
 
 }

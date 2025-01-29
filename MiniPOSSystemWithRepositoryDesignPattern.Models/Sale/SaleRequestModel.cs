@@ -1,4 +1,5 @@
 ﻿namespace MiniPOSSystemWithRepositoryDesignPattern.Models.Sale;
+
 #region SaleRequestModel
 
 public class SaleRequestModel

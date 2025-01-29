@@ -4,54 +4,54 @@
 [ApiController]
 public class ProductController : ControllerBase
 {
-    private readonly BL_Product _bL_Product;
+	private readonly BL_Product _bL_Product;
 
-    public ProductController(BL_Product bL_Product)
-    {
-        _bL_Product = bL_Product;
-    }
+	public ProductController(BL_Product bL_Product)
+	{
+		_bL_Product = bL_Product;
+	}
 
-    #region CreateProductAsync
+	#region CreateProductAsync
 
-    [HttpPost]
-    public async Task<IActionResult> CreateProductAsync(ProductRequestModel productRequestModel, CancellationToken cancellationToken)
-    {
-       var item = await _bL_Product.CreateProductAsync(productRequestModel, cancellationToken);
-        return Ok(item);
-    }
+	[HttpPost]
+	public async Task<IActionResult> CreateProductAsync([FromBody] ProductRequestModel productRequestModel, CancellationToken cancellationToken)
+	{
+		var item = await _bL_Product.CreateProductAsync(productRequestModel, cancellationToken);
+		return Ok(item);
+	}
 
-    #endregion
+	#endregion
 
-    #region GetProductAsync
+	#region GetProductAsync
 
-    [HttpGet]
-    public async Task<IActionResult> GetProductAsync(CancellationToken cs)
-    {
-        var item = await _bL_Product.GetProductAsync(cs);
-        return Ok(item);
-    }
+	[HttpGet]
+	public async Task<IActionResult> GetProductAsync(CancellationToken cs)
+	{
+		var item = await _bL_Product.GetProductAsync(cs);
+		return Ok(item);
+	}
 
-    #endregion
+	#endregion
 
-    #region GetProductByCategoryIdAsync
+	#region GetProductByCategoryIdAsync
 
-    [HttpGet]
-    public async Task<IActionResult> GetProductByCategoryIdAsync(string categoryId , CancellationToken cs)
-    {
-        var item = await _bL_Product.GetProductByCategoryIdAsync(categoryId, cs);
-        return Ok(item);
-    }
+	[HttpGet("ByCategory/{categoryId}")]
+	public async Task<IActionResult> GetProductByCategoryIdAsync(string categoryId, CancellationToken cs)
+	{
+		var item = await _bL_Product.GetProductByCategoryIdAsync(categoryId, cs);
+		return Ok(item);
+	}
 
-    #endregion
+	#endregion
 
-    #region UpdateProductAsync
+	#region UpdateProductAsync
 
-    [HttpPatch]
-    public async Task<IActionResult> UpdateProductAsync(string productId, ProductResponseModel productResponse , CancellationToken cs)
-    {
-        var item = await _bL_Product.UpdateProductAsync(productId, productResponse, cs);
-        return Ok(item);
-    }
+	[HttpPatch("{productId}")]
+	public async Task<IActionResult> UpdateProductAsync(string productId, [FromBody] ProductResponseModel productResponse, CancellationToken cs)
+	{
+		var item = await _bL_Product.UpdateProductAsync(productId, productResponse, cs);
+		return Ok(item);
+	}
 
-    #endregion
+	#endregion
 }

@@ -122,7 +122,9 @@ public class ProductRepository : IProductRepository
             var product = await _db.TblProducts
                 .FirstOrDefaultAsync(x => x.ProductId == productId && !x.IsDelete);
 
-            if(product is null)
+			#region Validation
+
+			if (product is null)
             {
                 result = Result<ProductResponseModel>.Fail("Product does not exist.");
             }
@@ -140,7 +142,9 @@ public class ProductRepository : IProductRepository
                 product.Price = productResponse.Price.Value;
             }
 
-            _db.TblProducts.Attach(product);
+			#endregion
+
+			_db.TblProducts.Attach(product);
             _db.Entry(product).State = EntityState.Modified;
             await _db.SaveChangesAsync(cs);
 
